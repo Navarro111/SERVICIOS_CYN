@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Sistema XYZ</title>
+<style>
+body {
+    font-family: Arial;
+    background: #f4f4f4;
+    padding: 20px;
+}
+h1 { color: #333; }
+
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: auto;
+}
+
+input, select, button {
+    padding: 10px;
+    margin: 5px;
+}
+
+button {
+    background: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>Empresa XYZ - Alquiler de Equipos</h1>
+
+<h3>Alquilar Equipo</h3>
+
+<input type="text" id="cliente" placeholder="Nombre del cliente">
+
+<select id="equipo">
+    <option value="PC">PC</option>
+    <option value="Laptop">Laptop</option>
+    <option value="Impresora">Impresora</option>
+</select>
+
+<input type="number" id="horas" placeholder="Horas">
+
+<button onclick="alquilar()">Alquilar</button>
+
+<h3>Servicios</h3>
+<select id="servicio">
+    <option value="impresion">Impresión ($0.10)</option>
+    <option value="copia">Copia ($0.05)</option>
+</select>
+
+<input type="number" id="cantidad" placeholder="Cantidad">
+<button onclick="agregarServicio()">Agregar Servicio</button>
+
+<h3>Registros</h3>
+
+<table>
+<thead>
+<tr>
+<th>Cliente</th>
+<th>Equipo</th>
+<th>Horas</th>
+<th>Servicios</th>
+<th>Total</th>
+<th>Acción</th>
+</tr>
+</thead>
+<tbody id="tabla"></tbody>
+</table>
+
+</div>
+
+<script>
+let equipos = {
+    "PC": true,
+    "Laptop": true,
+    "Impresora": true
+};
+
+let registros = [];
+let serviciosTemp = [];
+
+function alquilar() {
+    let cliente = document.getElementById("cliente").value;
+    let equipo = document.getElementById("equipo").value;
+    let horas = document.getElementById("horas").value;
+
+    if (!equipos[equipo]) {
+        alert("Equipo ocupado");
+        return;
+    }
+
+    let costo = horas * 5;
+
+    let totalServicios = serviciosTemp.reduce((acc, s) => acc + s.total, 0);
+
+    let totalFinal = costo + totalServicios;
+
+    equipos[equipo] = false;
+
+    registros.push({
+        cliente,
+        equipo,
+        horas,
+        servicios: [...serviciosTemp],
+        total: totalFinal
+    });
+
+    serviciosTemp = [];
+
+    mostrar();
+}
+
+function agregarServicio() {
+    let tipo = document.getElementById("servicio").value;
+    let cantidad = document.getElementById("cantidad").value;
+
+    let precio = tipo === "impresion" ? 0.10 : 0.05;
+
+    serviciosTemp.push({
+        tipo,
+        cantidad,
+        total: cantidad * precio
+    });
+
+    alert("Servicio agregado");
+}
+
+function mostrar() {
+    let tabla = document.getElementById("tabla");
+    tabla.innerHTML = "";
+
+    registros.forEach((r, index) => {
+        let serviciosTexto = r.servicios.map(s => s.tipo + "(" + s.cantidad + ")").join(", ");
+
+        tabla.innerHTML += `
+        <tr>
+            <td>${r.cliente}</td>
+            <td>${r.equipo}</td>
+            <td>${r.horas}</td>
+            <td>${serviciosTexto}</td>
+            <td>$${r.total.toFixed(2)}</td>
+            <td><button onclick="eliminar(${index})">Eliminar</button></td>
+        </tr>
+        `;
+    });
+}
+
+function eliminar(index) {
+    let equipo = registros[index].equipo;
+    equipos[equipo] = true;
+
+    registros.splice(index, 1);
+    mostrar();
+}
+</script>
+
+</body>
+</html>
