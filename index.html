@@ -37,7 +37,6 @@
     overflow-x: hidden;
   }
 
-  /* ── SCROLLBAR ── */
   ::-webkit-scrollbar { width: 7px; }
   ::-webkit-scrollbar-track { background: var(--navy); }
   ::-webkit-scrollbar-thumb { background: var(--cyan); border-radius: 4px; }
@@ -53,15 +52,9 @@
     overflow: hidden;
   }
 
-  .login-bg-circles {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-  }
+  .login-bg-circles { position: absolute; inset: 0; pointer-events: none; }
   .login-bg-circles span {
-    position: absolute;
-    border-radius: 50%;
-    opacity: 0.07;
+    position: absolute; border-radius: 50%; opacity: 0.07;
     animation: pulse 6s infinite alternate;
   }
   .login-bg-circles span:nth-child(1) { width:400px;height:400px;background:var(--cyan);top:-100px;left:-100px;animation-delay:0s; }
@@ -85,8 +78,7 @@
   @keyframes slideUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
 
   .login-logo {
-    font-size: 48px;
-    margin-bottom: 8px;
+    font-size: 48px; margin-bottom: 8px;
     filter: drop-shadow(0 0 12px var(--accent));
     animation: glow 3s ease-in-out infinite alternate;
   }
@@ -95,71 +87,37 @@
   .login-card h1 { font-size: 1.6rem; color: var(--accent2); letter-spacing: 2px; margin-bottom: 4px; }
   .login-card p  { font-size: 0.8rem; color: var(--text2); margin-bottom: 28px; }
 
-  .login-field {
-    position: relative;
-    margin-bottom: 16px;
-  }
-  .login-field span {
-    position: absolute;
-    left: 14px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 16px;
-  }
+  .login-field { position: relative; margin-bottom: 16px; }
+  .login-field span { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 16px; }
   .login-field input {
-    width: 100%;
-    padding: 12px 12px 12px 42px;
-    background: var(--navy3);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    color: white;
-    font-size: 14px;
-    outline: none;
-    transition: border-color .3s, box-shadow .3s;
+    width: 100%; padding: 12px 12px 12px 42px;
+    background: var(--navy3); border: 1px solid var(--border);
+    border-radius: 8px; color: white; font-size: 14px;
+    outline: none; transition: border-color .3s, box-shadow .3s;
   }
-  .login-field input:focus {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(56,189,248,0.15);
-  }
+  .login-field input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(56,189,248,0.15); }
 
   #loginBtn {
-    width: 100%;
-    padding: 13px;
+    width: 100%; padding: 13px;
     background: linear-gradient(90deg, var(--cyan), var(--cyan2));
-    border: none;
-    border-radius: 8px;
-    color: white;
-    font-size: 15px;
-    font-weight: 700;
-    cursor: pointer;
-    letter-spacing: 1px;
-    transition: all .3s;
-    margin-top: 8px;
+    border: none; border-radius: 8px; color: white;
+    font-size: 15px; font-weight: 700; cursor: pointer;
+    letter-spacing: 1px; transition: all .3s; margin-top: 8px;
   }
   #loginBtn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(21,146,196,0.4); }
   #loginBtn:active { transform: translateY(0); }
 
-  .login-error {
-    color: var(--danger);
-    font-size: 13px;
-    margin-top: 10px;
-    min-height: 20px;
-  }
+  .login-error { color: var(--danger); font-size: 13px; margin-top: 10px; min-height: 20px; }
 
-  /* ═══════════════════ APP SHELL ═══════════════════ */
+  /* ═══════════════════ APP ═══════════════════ */
   #appScreen { display: none; }
 
   .top-bar {
     background: linear-gradient(90deg, #040d1a 0%, var(--navy) 100%);
     border-bottom: 2px solid var(--cyan);
     padding: 0 28px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 64px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px; position: sticky; top: 0; z-index: 100;
     box-shadow: 0 4px 24px rgba(0,0,0,0.5);
   }
 
@@ -170,59 +128,35 @@
 
   .top-bar-right { display: flex; align-items: center; gap: 20px; }
 
-  .clock-display {
-    text-align: right;
-    font-family: 'Courier New', monospace;
-  }
+  .clock-display { text-align: right; font-family: 'Courier New', monospace; }
   .clock-display .time { font-size: 1.3rem; color: var(--accent2); font-weight: 700; }
   .clock-display .date { font-size: 0.7rem; color: var(--text2); }
 
   .status-badges { display: flex; gap: 8px; align-items: center; }
   .badge {
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 11px;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 5px;
+    padding: 4px 12px; border-radius: 20px;
+    font-size: 11px; font-weight: 700;
+    display: flex; align-items: center; gap: 5px;
   }
   .badge-active { background: rgba(52,211,153,0.15); color: var(--success); border: 1px solid rgba(52,211,153,0.3); }
   .badge-idle   { background: rgba(251,191,36,0.12); color: var(--warning); border: 1px solid rgba(251,191,36,0.3); }
 
   .logout-btn {
-    background: transparent;
-    border: 1px solid var(--danger);
-    color: var(--danger);
-    padding: 6px 14px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 12px;
-    transition: all .3s;
+    background: transparent; border: 1px solid var(--danger);
+    color: var(--danger); padding: 6px 14px; border-radius: 6px;
+    cursor: pointer; font-size: 12px; transition: all .3s;
   }
   .logout-btn:hover { background: var(--danger); color: white; }
 
-  /* ── TABS ── */
   .tab-nav {
-    background: var(--navy2);
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    padding: 0 28px;
-    gap: 4px;
+    background: var(--navy2); border-bottom: 1px solid var(--border);
+    display: flex; padding: 0 28px; gap: 4px;
   }
   .tab-btn {
-    padding: 14px 22px;
-    background: transparent;
-    border: none;
-    color: var(--text2);
-    cursor: pointer;
-    font-size: 13px;
-    font-weight: 600;
-    border-bottom: 3px solid transparent;
-    transition: all .3s;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    padding: 14px 22px; background: transparent; border: none;
+    color: var(--text2); cursor: pointer; font-size: 13px; font-weight: 600;
+    border-bottom: 3px solid transparent; transition: all .3s;
+    display: flex; align-items: center; gap: 8px;
   }
   .tab-btn:hover { color: var(--accent); }
   .tab-btn.active { color: var(--accent2); border-bottom-color: var(--accent2); }
@@ -232,20 +166,14 @@
 
   /* ═══════════════════ DASHBOARD ═══════════════════ */
   .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 16px;
-    margin-bottom: 28px;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px; margin-bottom: 28px;
   }
 
   .stat-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; padding: 20px;
+    display: flex; align-items: center; gap: 16px;
     transition: transform .3s, box-shadow .3s;
   }
   .stat-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
@@ -254,44 +182,26 @@
   .stat-info .val { font-size: 1.8rem; font-weight: 800; color: var(--accent); }
   .stat-info .lbl { font-size: 0.72rem; color: var(--text2); margin-top: 2px; }
 
-  /* Equipment Grid */
   .section-title {
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--accent2);
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 10px;
+    font-size: 1rem; font-weight: 700; color: var(--accent2);
+    margin-bottom: 16px; display: flex; align-items: center; gap: 10px;
+    border-bottom: 1px solid var(--border); padding-bottom: 10px;
   }
 
   .equip-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 12px;
-    margin-bottom: 28px;
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px; margin-bottom: 28px;
   }
 
   .equip-card {
-    background: var(--card);
-    border: 1.5px solid var(--border);
-    border-radius: 12px;
-    padding: 16px 12px;
-    text-align: center;
-    cursor: pointer;
-    transition: all .3s;
-    position: relative;
-    overflow: hidden;
+    background: var(--card); border: 1.5px solid var(--border);
+    border-radius: 12px; padding: 16px 12px;
+    text-align: center; cursor: pointer; transition: all .3s;
+    position: relative; overflow: hidden;
   }
   .equip-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: var(--border);
-    transition: background .3s;
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 3px; background: var(--border); transition: background .3s;
   }
   .equip-card.active-eq::before  { background: var(--success); }
   .equip-card.idle-eq::before    { background: var(--warning); }
@@ -301,11 +211,8 @@
   .equip-name  { font-size: 12px; font-weight: 700; color: var(--text); }
   .equip-type  { font-size: 10px; color: var(--text2); margin-bottom: 6px; }
   .equip-status {
-    display: inline-block;
-    padding: 3px 10px;
-    border-radius: 20px;
-    font-size: 10px;
-    font-weight: 700;
+    display: inline-block; padding: 3px 10px;
+    border-radius: 20px; font-size: 10px; font-weight: 700;
   }
   .status-libre    { background: rgba(52,211,153,0.15); color: var(--success); }
   .status-ocupado  { background: rgba(255,77,109,0.15); color: var(--danger); }
@@ -315,19 +222,14 @@
 
   /* ═══════════════════ REGISTER ═══════════════════ */
   .form-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 28px;
-    margin-bottom: 24px;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 16px; padding: 28px; margin-bottom: 24px;
     box-shadow: var(--shadow);
   }
 
   .form-row {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 16px;
-    margin-bottom: 16px;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px; margin-bottom: 16px;
   }
 
   .form-group { display: flex; flex-direction: column; gap: 6px; }
@@ -336,35 +238,21 @@
   .form-group input,
   .form-group select,
   .form-group textarea {
-    padding: 10px 14px;
-    background: var(--navy3);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    color: white;
-    font-size: 13px;
-    outline: none;
+    padding: 10px 14px; background: var(--navy3);
+    border: 1px solid var(--border); border-radius: 8px;
+    color: white; font-size: 13px; outline: none;
     transition: border-color .3s, box-shadow .3s;
   }
   .form-group input:focus,
-  .form-group select:focus {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(56,189,248,0.12);
-  }
+  .form-group select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(56,189,248,0.12); }
   .form-group select option { background: var(--navy3); }
 
   .btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
 
   .btn {
-    padding: 10px 22px;
-    border: none;
-    border-radius: 8px;
-    font-size: 13px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all .3s;
-    display: flex;
-    align-items: center;
-    gap: 7px;
+    padding: 10px 22px; border: none; border-radius: 8px;
+    font-size: 13px; font-weight: 700; cursor: pointer;
+    transition: all .3s; display: flex; align-items: center; gap: 7px;
   }
   .btn-primary { background: linear-gradient(90deg, var(--cyan), var(--cyan2)); color: white; }
   .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(27,127,168,0.4); }
@@ -379,48 +267,70 @@
   .btn-pdf { background: linear-gradient(90deg, #7c3aed, #a78bfa); color: white; }
   .btn-pdf:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(167,139,250,0.4); }
 
+  /* ── IMPRESIÓN PANEL ── */
+  .print-panel {
+    background: linear-gradient(135deg, #0f2744, #0a1f3d);
+    border: 1px solid var(--cyan);
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+  }
+  .print-panel-title {
+    font-size: 13px; font-weight: 700; color: var(--accent2);
+    margin-bottom: 16px; display: flex; align-items: center; gap: 8px;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .print-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px; margin-bottom: 16px;
+  }
+  .print-input-group { display: flex; flex-direction: column; gap: 6px; }
+  .print-input-group label {
+    font-size: 11px; color: var(--text2); font-weight: 600;
+    text-transform: uppercase; letter-spacing: .5px;
+  }
+  .print-input-group input, .print-input-group select {
+    padding: 9px 12px; background: var(--navy3);
+    border: 1px solid var(--border); border-radius: 8px;
+    color: white; font-size: 13px; outline: none;
+    transition: border-color .3s;
+  }
+  .print-input-group input:focus, .print-input-group select:focus {
+    border-color: var(--accent);
+  }
+  .print-summary {
+    background: var(--navy4); border-radius: 10px; padding: 14px 18px;
+    display: flex; gap: 28px; flex-wrap: wrap; align-items: center;
+    border: 1px solid var(--border);
+  }
+  .print-summary-item { display: flex; flex-direction: column; gap: 2px; }
+  .print-summary-item .ps-label { font-size: 10px; color: var(--text2); text-transform: uppercase; }
+  .print-summary-item .ps-value { font-size: 1.2rem; font-weight: 800; color: var(--accent); font-family: monospace; }
+  .print-summary-item .ps-value.total { color: var(--accent2); font-size: 1.5rem; }
+
   /* Table */
   .table-wrap {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 16px; overflow: hidden; box-shadow: var(--shadow);
   }
-
   .table-toolbar {
-    padding: 16px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid var(--border);
-    flex-wrap: wrap;
-    gap: 12px;
+    padding: 16px 20px; display: flex;
+    justify-content: space-between; align-items: center;
+    border-bottom: 1px solid var(--border); flex-wrap: wrap; gap: 12px;
   }
   .table-toolbar h3 { font-size: 14px; color: var(--accent2); }
 
   .search-box {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--navy3);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 7px 12px;
+    display: flex; align-items: center; gap: 8px;
+    background: var(--navy3); border: 1px solid var(--border);
+    border-radius: 8px; padding: 7px 12px;
   }
   .search-box input {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 13px;
-    outline: none;
-    width: 160px;
+    background: none; border: none; color: white;
+    font-size: 13px; outline: none; width: 160px;
   }
 
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
+  table { width: 100%; border-collapse: collapse; }
   thead tr { background: var(--navy4); }
   thead th { padding: 12px 16px; text-align: left; font-size: 11px; color: var(--text2); text-transform: uppercase; letter-spacing: .6px; }
   tbody tr { border-bottom: 1px solid var(--border); transition: background .2s; }
@@ -432,32 +342,23 @@
   .btn-sm { padding: 5px 12px; font-size: 11px; border-radius: 6px; }
 
   .status-pill {
-    padding: 3px 10px;
-    border-radius: 20px;
-    font-size: 10px;
-    font-weight: 700;
-    display: inline-block;
+    padding: 3px 10px; border-radius: 20px;
+    font-size: 10px; font-weight: 700; display: inline-block;
   }
-  .pill-activo   { background: rgba(52,211,153,.15); color: #34d399; }
-  .pill-cerrado  { background: rgba(100,255,218,.1);  color: #64ffda; }
-  .pill-pendiente{ background: rgba(251,191,36,.12);  color: #fbbf24; }
+  .pill-activo    { background: rgba(52,211,153,.15); color: #34d399; }
+  .pill-cerrado   { background: rgba(100,255,218,.1);  color: #64ffda; }
+  .pill-pendiente { background: rgba(251,191,36,.12);  color: #fbbf24; }
 
   /* ═══════════════════ FACTURA ═══════════════════ */
   .invoice-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
-    max-width: 720px;
-    margin: 0 auto;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 16px; overflow: hidden; box-shadow: var(--shadow);
+    max-width: 720px; margin: 0 auto;
   }
   .invoice-header {
     background: linear-gradient(135deg, #040d1a, #0d2137);
     padding: 28px 32px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    display: flex; justify-content: space-between; align-items: flex-start;
     border-bottom: 2px solid var(--cyan);
   }
   .invoice-brand h2 { font-size: 1.4rem; color: var(--accent2); letter-spacing: 2px; }
@@ -483,75 +384,48 @@
 
   .inv-total-box {
     background: linear-gradient(135deg, var(--navy4), var(--navy3));
-    border: 1px solid var(--cyan);
-    border-radius: 10px;
-    padding: 16px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 16px;
+    border: 1px solid var(--cyan); border-radius: 10px;
+    padding: 16px 20px; display: flex;
+    justify-content: space-between; align-items: center; margin-top: 16px;
   }
   .inv-total-box .total-label { font-size: 13px; color: var(--text2); }
   .inv-total-box .total-amount { font-size: 2rem; font-weight: 800; color: var(--accent2); }
 
   .invoice-footer {
-    background: var(--navy4);
-    padding: 14px 32px;
-    text-align: center;
-    font-size: 11px;
-    color: var(--text2);
+    background: var(--navy4); padding: 14px 32px;
+    text-align: center; font-size: 11px; color: var(--text2);
     border-top: 1px solid var(--border);
   }
 
   .invoice-actions {
-    display: flex;
-    justify-content: center;
-    gap: 14px;
-    margin-top: 20px;
-    flex-wrap: wrap;
+    display: flex; justify-content: center;
+    gap: 14px; margin-top: 20px; flex-wrap: wrap;
   }
 
   /* ═══════════════════ MODAL ═══════════════════ */
   .modal-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.75);
-    z-index: 200;
-    justify-content: center;
-    align-items: center;
+    display: none; position: fixed; inset: 0;
+    background: rgba(0,0,0,0.75); z-index: 200;
+    justify-content: center; align-items: center;
     backdrop-filter: blur(4px);
   }
   .modal-overlay.open { display: flex; }
 
   .modal-box {
-    background: var(--navy3);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 32px;
-    width: 500px;
-    max-width: 95vw;
-    box-shadow: var(--shadow);
-    animation: slideUp .3s ease;
-    max-height: 90vh;
-    overflow-y: auto;
+    background: var(--navy3); border: 1px solid var(--border);
+    border-radius: 16px; padding: 32px; width: 500px;
+    max-width: 95vw; box-shadow: var(--shadow);
+    animation: slideUp .3s ease; max-height: 90vh; overflow-y: auto;
   }
   .modal-box h3 { font-size: 1.1rem; color: var(--accent2); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
 
   .modal-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px; }
 
-  /* ─ Toast ─ */
   #toastContainer { position: fixed; bottom: 24px; right: 24px; z-index: 999; display: flex; flex-direction: column; gap: 10px; }
   .toast {
-    padding: 12px 20px;
-    border-radius: 10px;
-    font-size: 13px;
-    font-weight: 600;
-    min-width: 240px;
-    animation: toastIn .3s ease;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    padding: 12px 20px; border-radius: 10px; font-size: 13px; font-weight: 600;
+    min-width: 240px; animation: toastIn .3s ease;
+    display: flex; align-items: center; gap: 10px;
     box-shadow: 0 6px 24px rgba(0,0,0,0.4);
   }
   @keyframes toastIn { from{opacity:0;transform:translateX(20px)} to{opacity:1;transform:translateX(0)} }
@@ -560,26 +434,19 @@
   .toast-info    { background: #0c2a4a; color: var(--accent);  border-left: 4px solid var(--accent); }
   .toast-warn    { background: #422006; color: var(--warning); border-left: 4px solid var(--warning); }
 
-  /* ─ Misc ─ */
   .empty-state { text-align: center; padding: 48px 20px; color: var(--text2); }
   .empty-state .icon { font-size: 48px; margin-bottom: 12px; opacity: .5; }
   .empty-state p { font-size: 14px; }
 
   .highlight { color: var(--accent2); font-weight: 700; }
 
-  /* Pricing table */
   .price-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 16px;
-    margin-bottom: 24px;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px; margin-bottom: 24px;
   }
   .price-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 18px;
-    text-align: center;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 18px; text-align: center;
   }
   .price-card .p-icon { font-size: 28px; margin-bottom: 8px; }
   .price-card .p-type { font-size: 13px; color: var(--text2); margin-bottom: 6px; }
@@ -601,9 +468,7 @@
 
 <!-- ═══════════════════ LOGIN ═══════════════════ -->
 <div id="loginScreen">
-  <div class="login-bg-circles">
-    <span></span><span></span><span></span>
-  </div>
+  <div class="login-bg-circles"><span></span><span></span><span></span></div>
   <div class="login-card">
     <div class="login-logo">💻</div>
     <h1>SERVTECH_NAVARRO</h1>
@@ -625,7 +490,6 @@
 <!-- ═══════════════════ APP ═══════════════════ -->
 <div id="appScreen">
 
-  <!-- TOP BAR -->
   <div class="top-bar">
     <div class="top-bar-left">
       <span class="logo">💻</span>
@@ -647,7 +511,6 @@
     </div>
   </div>
 
-  <!-- TABS -->
   <div class="tab-nav">
     <button class="tab-btn active" onclick="switchTab('dashboard')" id="tab-dashboard">📊 Dashboard</button>
     <button class="tab-btn" onclick="switchTab('registro')" id="tab-registro">📝 Registrar Servicio</button>
@@ -658,7 +521,6 @@
 
   <!-- ── TAB: DASHBOARD ── -->
   <div class="tab-content active" id="tab-content-dashboard">
-
     <div class="stats-grid">
       <div class="stat-card">
         <span class="stat-icon">🖥️</span>
@@ -685,12 +547,10 @@
     <div id="activeSessions">
       <div class="empty-state"><div class="icon">🕐</div><p>No hay sesiones activas en este momento</p></div>
     </div>
-
   </div>
 
   <!-- ── TAB: REGISTRO ── -->
   <div class="tab-content" id="tab-content-registro">
-
     <div class="form-card">
       <div class="section-title">📝 <span id="formTitle">Nuevo Servicio</span></div>
       <input type="hidden" id="editId">
@@ -713,11 +573,11 @@
       <div class="form-row">
         <div class="form-group">
           <label>Equipo</label>
-          <select id="fEquipo"></select>
+          <select id="fEquipo" onchange="onEquipoChange()"></select>
         </div>
         <div class="form-group">
           <label>Tipo de Servicio</label>
-          <select id="fServicio">
+          <select id="fServicio" onchange="onServicioChange()">
             <option value="alquiler">🖥️ Alquiler de Equipo</option>
             <option value="impresion">🖨️ Impresión / Escaneo</option>
             <option value="reparacion">🔧 Reparación / Mantenimiento</option>
@@ -726,18 +586,72 @@
             <option value="otro">📦 Otro Servicio</option>
           </select>
         </div>
-        <div class="form-group">
+        <div class="form-group" id="grupTarifa">
           <label>Tarifa por hora ($)</label>
           <input type="number" id="fTarifa" value="2.00" step="0.50" min="0.50">
         </div>
       </div>
 
+      <!-- PANEL ESPECIAL IMPRESIÓN -->
+      <div id="panelImpresion" style="display:none">
+        <div class="print-panel">
+          <div class="print-panel-title">🖨️ Detalle de Impresión / Escaneo</div>
+          <div class="print-grid">
+            <div class="print-input-group">
+              <label>Tipo de trabajo</label>
+              <select id="pTipo" onchange="recalcPrint()">
+                <option value="impresion_bn">Impresión B/N</option>
+                <option value="impresion_color">Impresión Color</option>
+                <option value="escaneo">Escaneo</option>
+                <option value="impresion_doble">Impresión Doble Cara B/N</option>
+                <option value="fotocopia">Fotocopia B/N</option>
+              </select>
+            </div>
+            <div class="print-input-group">
+              <label>N° de páginas</label>
+              <input type="number" id="pPaginas" value="1" min="1" step="1" oninput="recalcPrint()">
+            </div>
+            <div class="print-input-group">
+              <label>N° de copias</label>
+              <input type="number" id="pCopias" value="1" min="1" step="1" oninput="recalcPrint()">
+            </div>
+            <div class="print-input-group">
+              <label>Precio por página ($)</label>
+              <input type="number" id="pPrecioPag" value="0.10" min="0.01" step="0.01" oninput="recalcPrint()">
+            </div>
+          </div>
+
+          <div class="print-summary">
+            <div class="print-summary-item">
+              <span class="ps-label">Páginas</span>
+              <span class="ps-value" id="rPaginas">1</span>
+            </div>
+            <div class="print-summary-item">
+              <span class="ps-label">Copias</span>
+              <span class="ps-value" id="rCopias">1</span>
+            </div>
+            <div class="print-summary-item">
+              <span class="ps-label">Total hojas</span>
+              <span class="ps-value" id="rHojas">1</span>
+            </div>
+            <div class="print-summary-item">
+              <span class="ps-label">Precio / hoja</span>
+              <span class="ps-value" id="rPrecioHoja">$0.10</span>
+            </div>
+            <div class="print-summary-item">
+              <span class="ps-label">SUBTOTAL</span>
+              <span class="ps-value total" id="rSubtotal">$0.10</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="form-row">
-        <div class="form-group">
+        <div class="form-group" id="grupoEntrada">
           <label>Hora de Entrada</label>
           <input type="time" id="fEntrada">
         </div>
-        <div class="form-group">
+        <div class="form-group" id="grupoSalida">
           <label>Hora de Salida (dejar vacío si activo)</label>
           <input type="time" id="fSalida">
         </div>
@@ -769,7 +683,6 @@
       </div>
     </div>
 
-    <!-- Precio estimado -->
     <div class="form-card" id="precioCard" style="display:none">
       <div class="section-title">💰 Cálculo en Tiempo Real</div>
       <div style="display:flex;gap:28px;flex-wrap:wrap;align-items:center">
@@ -779,7 +692,6 @@
         <button class="btn btn-danger" id="btnCerrarActivo" onclick="cerrarSesionActiva()" style="display:none">🔴 Cerrar & Facturar</button>
       </div>
     </div>
-
   </div>
 
   <!-- ── TAB: HISTORIAL ── -->
@@ -805,7 +717,7 @@
               <th>Servicio</th>
               <th>Entrada</th>
               <th>Salida</th>
-              <th>Tiempo</th>
+              <th>Tiempo / Detalle</th>
               <th>Total</th>
               <th>Estado</th>
               <th>Acciones</th>
@@ -823,7 +735,6 @@
 
   <!-- ── TAB: FACTURA ── -->
   <div class="tab-content" id="tab-content-factura">
-
     <div style="display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap;align-items:center">
       <div class="form-group" style="flex:1;min-width:200px">
         <label>Seleccionar Registro para Factura</label>
@@ -833,11 +744,9 @@
       </div>
       <button class="btn btn-outline" onclick="cargarFactura()" style="margin-top:22px">👁️ Vista Previa</button>
     </div>
-
     <div id="facturaContenido">
       <div class="empty-state"><div class="icon">🧾</div><p>Selecciona un registro para generar su factura</p></div>
     </div>
-
     <div class="invoice-actions" id="facturaActions" style="display:none">
       <button class="btn btn-pdf" onclick="descargarPDF()">📄 Descargar PDF</button>
       <button class="btn btn-primary" onclick="imprimirFactura()">🖨️ Imprimir</button>
@@ -846,25 +755,30 @@
 
   <!-- ── TAB: CONFIG ── -->
   <div class="tab-content" id="tab-content-config">
-
     <div class="price-grid">
       <div class="price-card">
-        <div class="p-icon">🖥️</div>
-        <div class="p-type">PC Escritorio</div>
-        <div class="p-rate">$<span id="ratePc">2.00</span></div>
-        <div class="p-unit">por hora</div>
+        <div class="p-icon">🖥️</div><div class="p-type">PC Escritorio</div>
+        <div class="p-rate">$<span id="ratePc">2.00</span></div><div class="p-unit">por hora</div>
       </div>
       <div class="price-card">
-        <div class="p-icon">💻</div>
-        <div class="p-type">Laptop</div>
-        <div class="p-rate">$<span id="rateLaptop">2.50</span></div>
-        <div class="p-unit">por hora</div>
+        <div class="p-icon">💻</div><div class="p-type">Laptop</div>
+        <div class="p-rate">$<span id="rateLaptop">2.50</span></div><div class="p-unit">por hora</div>
       </div>
       <div class="price-card">
-        <div class="p-icon">🖨️</div>
-        <div class="p-type">Impresora</div>
-        <div class="p-rate">$<span id="rateImp">0.10</span></div>
-        <div class="p-unit">por página</div>
+        <div class="p-icon">🖨️</div><div class="p-type">Impresión B/N</div>
+        <div class="p-rate">$<span id="rateImpBN">0.10</span></div><div class="p-unit">por página</div>
+      </div>
+      <div class="price-card">
+        <div class="p-icon">🎨</div><div class="p-type">Impresión Color</div>
+        <div class="p-rate">$<span id="rateImpColor">0.25</span></div><div class="p-unit">por página</div>
+      </div>
+      <div class="price-card">
+        <div class="p-icon">📄</div><div class="p-type">Escaneo</div>
+        <div class="p-rate">$<span id="rateEscaneo">0.15</span></div><div class="p-unit">por página</div>
+      </div>
+      <div class="price-card">
+        <div class="p-icon">📋</div><div class="p-type">Fotocopia B/N</div>
+        <div class="p-rate">$<span id="rateFoto">0.05</span></div><div class="p-unit">por página</div>
       </div>
     </div>
 
@@ -880,8 +794,20 @@
           <input type="number" id="cfgLaptop" value="2.50" step="0.50" min="0.50" onchange="updateRates()">
         </div>
         <div class="form-group">
-          <label>Tarifa Impresora ($/pág)</label>
-          <input type="number" id="cfgImp" value="0.10" step="0.05" min="0.05" onchange="updateRates()">
+          <label>Impresión B/N ($/pág)</label>
+          <input type="number" id="cfgImpBN" value="0.10" step="0.01" min="0.01" onchange="updateRates()">
+        </div>
+        <div class="form-group">
+          <label>Impresión Color ($/pág)</label>
+          <input type="number" id="cfgImpColor" value="0.25" step="0.01" min="0.01" onchange="updateRates()">
+        </div>
+        <div class="form-group">
+          <label>Escaneo ($/pág)</label>
+          <input type="number" id="cfgEscaneo" value="0.15" step="0.01" min="0.01" onchange="updateRates()">
+        </div>
+        <div class="form-group">
+          <label>Fotocopia B/N ($/pág)</label>
+          <input type="number" id="cfgFoto" value="0.05" step="0.01" min="0.01" onchange="updateRates()">
         </div>
       </div>
       <div class="form-row">
@@ -924,9 +850,9 @@
     </div>
   </div>
 
-</div><!-- /appScreen -->
+</div>
 
-<!-- ═══════════ MODAL EDITAR ═══════════ -->
+<!-- MODAL EDITAR -->
 <div class="modal-overlay" id="modalEdit">
   <div class="modal-box">
     <h3>✏️ Editar Registro</h3>
@@ -938,7 +864,7 @@
   </div>
 </div>
 
-<!-- ═══════════ MODAL CERRAR SESIÓN ═══════════ -->
+<!-- MODAL CERRAR SESIÓN -->
 <div class="modal-overlay" id="modalCierre">
   <div class="modal-box">
     <h3>🔴 Cerrar Servicio</h3>
@@ -950,10 +876,8 @@
   </div>
 </div>
 
-<!-- TOASTS -->
 <div id="toastContainer"></div>
 
-<!-- ═══════════════════ SCRIPTS ═══════════════════ -->
 <script>
 // ══════════════════════════════════════════════
 //  DATA
@@ -961,128 +885,157 @@
 let DB = {
   registros: [],
   equipos: [
-    { id: 'PC-01',  tipo: 'PC Escritorio',  icon: '🖥️',  activo: true,  disponible: true,  cliente: null, sesionId: null },
-    { id: 'PC-02',  tipo: 'PC Escritorio',  icon: '🖥️',  activo: true,  disponible: true,  cliente: null, sesionId: null },
-    { id: 'PC-03',  tipo: 'PC Escritorio',  icon: '🖥️',  activo: true,  disponible: true,  cliente: null, sesionId: null },
-    { id: 'PC-04',  tipo: 'PC Escritorio',  icon: '🖥️',  activo: true,  disponible: true,  cliente: null, sesionId: null },
-    { id: 'LPT-01', tipo: 'Laptop',          icon: '💻',  activo: true,  disponible: true,  cliente: null, sesionId: null },
-    { id: 'LPT-02', tipo: 'Laptop',          icon: '💻',  activo: true,  disponible: true,  cliente: null, sesionId: null },
-    { id: 'LPT-03', tipo: 'Laptop',          icon: '💻',  activo: true,  disponible: true,  cliente: null, sesionId: null },
-    { id: 'LPT-04', tipo: 'Laptop',          icon: '💻',  activo: true,  disponible: true,  cliente: null, sesionId: null },
-    { id: 'LPT-05', tipo: 'Laptop',          icon: '💻',  activo: true,  disponible: true,  cliente: null, sesionId: null },
-    { id: 'IMP-01', tipo: 'Impresora Multi', icon: '🖨️',  activo: true,  disponible: true,  cliente: null, sesionId: null },
-    { id: 'IMP-02', tipo: 'Impresora Multi', icon: '🖨️',  activo: true,  disponible: true,  cliente: null, sesionId: null },
+    { id: 'PC-01',  tipo: 'PC Escritorio',  icon: '🖥️', activo: true, disponible: true, cliente: null, sesionId: null },
+    { id: 'PC-02',  tipo: 'PC Escritorio',  icon: '🖥️', activo: true, disponible: true, cliente: null, sesionId: null },
+    { id: 'PC-03',  tipo: 'PC Escritorio',  icon: '🖥️', activo: true, disponible: true, cliente: null, sesionId: null },
+    { id: 'PC-04',  tipo: 'PC Escritorio',  icon: '🖥️', activo: true, disponible: true, cliente: null, sesionId: null },
+    { id: 'LPT-01', tipo: 'Laptop',          icon: '💻', activo: true, disponible: true, cliente: null, sesionId: null },
+    { id: 'LPT-02', tipo: 'Laptop',          icon: '💻', activo: true, disponible: true, cliente: null, sesionId: null },
+    { id: 'LPT-03', tipo: 'Laptop',          icon: '💻', activo: true, disponible: true, cliente: null, sesionId: null },
+    { id: 'LPT-04', tipo: 'Laptop',          icon: '💻', activo: true, disponible: true, cliente: null, sesionId: null },
+    { id: 'LPT-05', tipo: 'Laptop',          icon: '💻', activo: true, disponible: true, cliente: null, sesionId: null },
+    { id: 'IMP-01', tipo: 'Impresora Multi', icon: '🖨️', activo: true, disponible: true, cliente: null, sesionId: null },
+    { id: 'IMP-02', tipo: 'Impresora Multi', icon: '🖨️', activo: true, disponible: true, cliente: null, sesionId: null },
   ],
   config: {
-    nombre: 'SERVTECH NAVARRO',
-    ruc:    '0912345678001',
-    dir:    'Guayaquil, Ecuador',
-    tel:    '04-1234567',
-    email:  'servtech@gmail.com',
-    iva:    15,
-    ratePc:    2.00,
-    rateLaptop: 2.50,
-    rateImp:   0.10,
+    nombre: 'SERVTECH NAVARRO', ruc: '0912345678001',
+    dir: 'Guayaquil, Ecuador', tel: '04-1234567',
+    email: 'servtech@gmail.com', iva: 15,
+    ratePc: 2.00, rateLaptop: 2.50,
+    rateImpBN: 0.10, rateImpColor: 0.25,
+    rateEscaneo: 0.15, rateFoto: 0.05,
   },
   nextId: 1001,
-  sesionActiva: null,   // id del registro actualmente en formulario en vivo
+  sesionActiva: null,
 };
 
 // ══════════════════════════════════════════════
 //  HELPERS
 // ══════════════════════════════════════════════
 function fmt2(n){ return String(n).padStart(2,'0'); }
-
-function fmtTime(d){
-  return fmt2(d.getHours())+':'+fmt2(d.getMinutes())+':'+fmt2(d.getSeconds());
-}
-
+function fmtTime(d){ return fmt2(d.getHours())+':'+fmt2(d.getMinutes())+':'+fmt2(d.getSeconds()); }
 function fmtDate(d){
   const dias=['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
   const meses=['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
   return dias[d.getDay()]+' '+fmt2(d.getDate())+' '+meses[d.getMonth()]+' '+d.getFullYear();
 }
-
-function timeToMin(t){
-  if(!t) return 0;
-  const [h,m] = t.split(':').map(Number);
-  return h*60+m;
-}
-
-function diffHours(entrada, salida){
-  const e = timeToMin(entrada);
-  const s = timeToMin(salida);
-  if(s <= e) return 0;
-  return (s - e) / 60;
-}
-
+function timeToMin(t){ if(!t) return 0; const [h,m]=t.split(':').map(Number); return h*60+m; }
+function diffHours(entrada,salida){ const e=timeToMin(entrada),s=timeToMin(salida); if(s<=e)return 0; return (s-e)/60; }
 function diffHoursFromNow(entrada){
-  const now = new Date();
-  const eMin = timeToMin(entrada);
-  const nMin = now.getHours()*60+now.getMinutes();
-  if(nMin <= eMin) return 0;
-  return (nMin - eMin) / 60;
+  const now=new Date(); const eMin=timeToMin(entrada);
+  const nMin=now.getHours()*60+now.getMinutes();
+  if(nMin<=eMin) return 0; return (nMin-eMin)/60;
 }
-
-function calcCost(equipoId, horas, servicio){
-  const eq = DB.equipos.find(e=>e.id===equipoId);
+function calcCost(r){
+  if(r.servicio==='impresion' && r.printData){
+    return r.printData.subtotal||0;
+  }
+  const eq = DB.equipos.find(e=>e.id===r.equipo);
   let rate = DB.config.ratePc;
   if(eq){
-    if(eq.tipo === 'Laptop')          rate = DB.config.rateLaptop;
-    else if(eq.tipo.includes('Imp'))  rate = DB.config.rateImp * 10; // base 10 pág estimadas
+    if(eq.tipo==='Laptop') rate=DB.config.rateLaptop;
+    else if(eq.tipo.includes('Imp')) rate=DB.config.rateImpBN*10;
   }
-  return +(horas * rate).toFixed(2);
+  return +((r.horas||0)*rate).toFixed(2);
 }
-
 function servicioLabel(s){
-  const map = {alquiler:'Alquiler Equipo',impresion:'Impresión/Escaneo',reparacion:'Reparación',internet:'Internet',diseño:'Diseño',otro:'Otro'};
+  const map={alquiler:'Alquiler Equipo',impresion:'Impresión/Escaneo',reparacion:'Reparación',internet:'Internet',diseño:'Diseño',otro:'Otro'};
   return map[s]||s;
 }
-
-function nowTimeStr(){
-  const n=new Date();
-  return fmt2(n.getHours())+':'+fmt2(n.getMinutes());
+function nowTimeStr(){ const n=new Date(); return fmt2(n.getHours())+':'+fmt2(n.getMinutes()); }
+function uid(){ return 'R-'+DB.nextId++; }
+function saveLS(){ localStorage.setItem('servtech_db', JSON.stringify(DB)); }
+function loadLS(){
+  const raw=localStorage.getItem('servtech_db');
+  if(!raw) return;
+  try{
+    const saved=JSON.parse(raw);
+    DB.registros=saved.registros||[];
+    DB.nextId=saved.nextId||1001;
+    if(saved.config) DB.config={...DB.config,...saved.config};
+    if(saved.equipos) saved.equipos.forEach(se=>{
+      const eq=DB.equipos.find(e=>e.id===se.id);
+      if(eq){ eq.activo=se.activo; eq.disponible=se.disponible; eq.cliente=se.cliente; eq.sesionId=se.sesionId; }
+    });
+  }catch(e){}
 }
 
-function uid(){ return 'R-'+DB.nextId++; }
+// Precio por tipo de impresión
+function getPrintRate(tipo){
+  const map={
+    impresion_bn:    DB.config.rateImpBN,
+    impresion_color: DB.config.rateImpColor,
+    escaneo:         DB.config.rateEscaneo,
+    impresion_doble: DB.config.rateImpBN,
+    fotocopia:       DB.config.rateFoto,
+  };
+  return map[tipo]||DB.config.rateImpBN;
+}
 
-function saveLS(){ localStorage.setItem('servtech_db', JSON.stringify(DB)); }
+function printTipoLabel(tipo){
+  const map={
+    impresion_bn:'Impresión B/N',
+    impresion_color:'Impresión Color',
+    escaneo:'Escaneo',
+    impresion_doble:'Impresión Doble Cara',
+    fotocopia:'Fotocopia B/N',
+  };
+  return map[tipo]||tipo;
+}
 
-function loadLS(){
-  const raw = localStorage.getItem('servtech_db');
-  if(raw){
-    try{
-      const saved = JSON.parse(raw);
-      DB.registros = saved.registros || [];
-      DB.nextId    = saved.nextId    || 1001;
-      if(saved.config) DB.config = {...DB.config,...saved.config};
-      // restore equipo state
-      if(saved.equipos) saved.equipos.forEach(se=>{
-        const eq = DB.equipos.find(e=>e.id===se.id);
-        if(eq){ eq.activo=se.activo; eq.disponible=se.disponible; eq.cliente=se.cliente; eq.sesionId=se.sesionId; }
-      });
-    }catch(e){}
+// ══════════════════════════════════════════════
+//  RECALC PRINT
+// ══════════════════════════════════════════════
+function recalcPrint(){
+  const paginas  = parseInt(document.getElementById('pPaginas').value)||1;
+  const copias   = parseInt(document.getElementById('pCopias').value)||1;
+  const precioPag= parseFloat(document.getElementById('pPrecioPag').value)||0.10;
+  const totalHojas= paginas * copias;
+  const subtotal = +(totalHojas * precioPag).toFixed(2);
+
+  document.getElementById('rPaginas').textContent   = paginas;
+  document.getElementById('rCopias').textContent    = copias;
+  document.getElementById('rHojas').textContent     = totalHojas;
+  document.getElementById('rPrecioHoja').textContent= '$'+precioPag.toFixed(2);
+  document.getElementById('rSubtotal').textContent  = '$'+subtotal.toFixed(2);
+}
+
+function onServicioChange(){
+  const val = document.getElementById('fServicio').value;
+  const esImpresion = val==='impresion';
+  document.getElementById('panelImpresion').style.display = esImpresion?'block':'none';
+  document.getElementById('grupTarifa').style.display     = esImpresion?'none':'flex';
+  document.getElementById('precioCard').style.display     = esImpresion?'none':'none'; // hide live for print
+  if(esImpresion){
+    // Auto-set precio segun equipo seleccionado
+    const tipo = document.getElementById('pTipo').value;
+    document.getElementById('pPrecioPag').value = getPrintRate(tipo).toFixed(2);
+    recalcPrint();
   }
+}
+
+function onEquipoChange(){
+  // nothing special needed here
 }
 
 // ══════════════════════════════════════════════
 //  TOAST
 // ══════════════════════════════════════════════
-function toast(msg, type='info'){
-  const el = document.createElement('div');
-  el.className = `toast toast-${type}`;
-  const icons = {success:'✅',error:'❌',info:'ℹ️',warn:'⚠️'};
-  el.innerHTML = `<span>${icons[type]||'ℹ️'}</span><span>${msg}</span>`;
+function toast(msg,type='info'){
+  const el=document.createElement('div');
+  el.className=`toast toast-${type}`;
+  const icons={success:'✅',error:'❌',info:'ℹ️',warn:'⚠️'};
+  el.innerHTML=`<span>${icons[type]||'ℹ️'}</span><span>${msg}</span>`;
   document.getElementById('toastContainer').appendChild(el);
-  setTimeout(()=>{ el.style.opacity='0'; el.style.transform='translateX(20px)'; el.style.transition='all .3s'; setTimeout(()=>el.remove(),300); }, 3500);
+  setTimeout(()=>{ el.style.opacity='0'; el.style.transform='translateX(20px)'; el.style.transition='all .3s'; setTimeout(()=>el.remove(),300); },3500);
 }
 
 // ══════════════════════════════════════════════
 //  LOGIN / LOGOUT
 // ══════════════════════════════════════════════
 function doLogin(){
-  const u = document.getElementById('loginUser').value.trim();
-  const p = document.getElementById('loginPass').value;
+  const u=document.getElementById('loginUser').value.trim();
+  const p=document.getElementById('loginPass').value;
   if(u==='admin' && p==='1234'){
     document.getElementById('loginScreen').style.display='none';
     document.getElementById('appScreen').style.display='block';
@@ -1095,10 +1048,9 @@ function doLogin(){
       document.getElementById('loginError').textContent='';
       document.getElementById('loginUser').style.borderColor='';
       document.getElementById('loginPass').style.borderColor='';
-    }, 3000);
+    },3000);
   }
 }
-
 function doLogout(){
   if(confirm('¿Deseas cerrar sesión?')){
     document.getElementById('appScreen').style.display='none';
@@ -1112,29 +1064,20 @@ function doLogout(){
 //  INIT
 // ══════════════════════════════════════════════
 function initApp(){
-  loadLS();
-  loadConfig();
-  renderEquipGrid();
-  renderEquipSelector();
-  renderEquipAdmin();
-  renderTabla();
-  renderSelectFactura();
-  updateStats();
-  setInterval(updateClock, 1000);
-  setInterval(updateLiveCalc, 1000);
-  setInterval(updateEquipTimers, 1000);
+  loadLS(); loadConfig();
+  renderEquipGrid(); renderEquipSelector(); renderEquipAdmin();
+  renderTabla(); renderSelectFactura(); updateStats();
+  setInterval(updateClock,1000);
+  setInterval(updateLiveCalc,1000);
+  setInterval(updateEquipTimers,1000);
   updateClock();
-  // Set default entrada time
-  document.getElementById('fEntrada').value = nowTimeStr();
+  document.getElementById('fEntrada').value=nowTimeStr();
 }
 
-// ══════════════════════════════════════════════
-//  CLOCK
-// ══════════════════════════════════════════════
 function updateClock(){
-  const now = new Date();
-  document.getElementById('clockTime').textContent = fmtTime(now);
-  document.getElementById('clockDate').textContent = fmtDate(now);
+  const now=new Date();
+  document.getElementById('clockTime').textContent=fmtTime(now);
+  document.getElementById('clockDate').textContent=fmtDate(now);
 }
 
 // ══════════════════════════════════════════════
@@ -1147,68 +1090,64 @@ function switchTab(name){
   document.getElementById('tab-content-'+name).classList.add('active');
   if(name==='historial') renderTabla();
   if(name==='factura')   renderSelectFactura();
-  if(name==='dashboard') { renderEquipGrid(); updateStats(); renderActiveSessions(); }
+  if(name==='dashboard'){ renderEquipGrid(); updateStats(); renderActiveSessions(); }
 }
 
 // ══════════════════════════════════════════════
 //  EQUIPMENT GRID
 // ══════════════════════════════════════════════
+function fmtHHMM(hrs){
+  const h=Math.floor(hrs); const m=Math.floor((hrs-h)*60);
+  return fmt2(h)+'h '+fmt2(m)+'m';
+}
+
 function renderEquipGrid(){
-  const grid = document.getElementById('equipGrid');
-  grid.innerHTML = '';
-  DB.equipos.forEach(eq => {
-    const div = document.createElement('div');
-    const libre  = eq.disponible && eq.activo;
-    const ocupado= !eq.disponible && eq.activo;
-    div.className = 'equip-card ' + (ocupado ? 'active-eq' : libre ? '' : 'idle-eq');
-    const statusClass = !eq.activo ? 'status-servicio' : libre ? 'status-libre' : 'status-ocupado';
-    const statusText  = !eq.activo ? 'MANTENIMIENTO' : libre ? 'LIBRE' : 'OCUPADO';
-    let timerHtml = '';
-    if(ocupado && eq.sesionId){
-      const reg = DB.registros.find(r=>r.id===eq.sesionId);
-      if(reg && reg.estado==='activo'){
-        const hrs = diffHoursFromNow(reg.entrada);
-        timerHtml = `<div class="equip-timer">⏱ ${fmtHHMM(hrs)}</div>`;
+  const grid=document.getElementById('equipGrid');
+  grid.innerHTML='';
+  DB.equipos.forEach(eq=>{
+    const div=document.createElement('div');
+    const libre=eq.disponible&&eq.activo;
+    const ocupado=!eq.disponible&&eq.activo;
+    div.className='equip-card '+(ocupado?'active-eq':libre?'':'idle-eq');
+    const statusClass=!eq.activo?'status-servicio':libre?'status-libre':'status-ocupado';
+    const statusText=!eq.activo?'MANTENIMIENTO':libre?'LIBRE':'OCUPADO';
+    let timerHtml='';
+    if(ocupado&&eq.sesionId){
+      const reg=DB.registros.find(r=>r.id===eq.sesionId);
+      if(reg&&reg.estado==='activo'){
+        const hrs=diffHoursFromNow(reg.entrada);
+        timerHtml=`<div class="equip-timer">⏱ ${fmtHHMM(hrs)}</div>`;
       }
     }
-    div.innerHTML = `
+    div.innerHTML=`
       <div class="equip-icon">${eq.icon}</div>
       <div class="equip-name">${eq.id}</div>
       <div class="equip-type">${eq.tipo}</div>
       <span class="equip-status ${statusClass}">${statusText}</span>
-      <div class="equip-client">${ocupado && eq.cliente ? eq.cliente : ''}</div>
-      ${timerHtml}
-    `;
-    if(libre) div.title = 'Clic para iniciar servicio';
-    if(libre) div.addEventListener('click', ()=>{ switchTab('registro'); document.getElementById('fEquipo').value=eq.id; });
+      <div class="equip-client">${ocupado&&eq.cliente?eq.cliente:''}</div>
+      ${timerHtml}`;
+    if(libre){ div.title='Clic para iniciar servicio'; div.addEventListener('click',()=>{ switchTab('registro'); document.getElementById('fEquipo').value=eq.id; }); }
     grid.appendChild(div);
   });
-}
-
-function fmtHHMM(hrs){
-  const h = Math.floor(hrs);
-  const m = Math.floor((hrs-h)*60);
-  return fmt2(h)+'h '+fmt2(m)+'m';
 }
 
 function updateEquipTimers(){ renderEquipGrid(); }
 
 // ══════════════════════════════════════════════
-//  ACTIVE SESSIONS PANEL
+//  ACTIVE SESSIONS
 // ══════════════════════════════════════════════
 function renderActiveSessions(){
-  const con = document.getElementById('activeSessions');
-  const activos = DB.registros.filter(r=>r.estado==='activo');
+  const con=document.getElementById('activeSessions');
+  const activos=DB.registros.filter(r=>r.estado==='activo');
   if(!activos.length){
-    con.innerHTML = '<div class="empty-state"><div class="icon">🕐</div><p>No hay sesiones activas</p></div>';
+    con.innerHTML='<div class="empty-state"><div class="icon">🕐</div><p>No hay sesiones activas</p></div>';
     return;
   }
-  const now = new Date();
-  let html = '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px">';
+  let html='<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px">';
   activos.forEach(r=>{
-    const hrs = diffHoursFromNow(r.entrada);
-    const cost = calcCost(r.equipo, hrs, r.servicio);
-    html += `
+    const hrs=diffHoursFromNow(r.entrada);
+    const cost=calcCost({...r,horas:hrs});
+    html+=`
     <div style="background:var(--card);border:1px solid var(--border);border-left:3px solid var(--success);border-radius:10px;padding:14px">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
         <span style="font-weight:700;color:var(--accent2)">${r.cliente}</span>
@@ -1216,58 +1155,48 @@ function renderActiveSessions(){
       </div>
       <div style="font-size:12px;color:var(--text2)">🖥️ ${r.equipo} &nbsp;|&nbsp; 🕐 Entrada: ${r.entrada}</div>
       <div style="display:flex;justify-content:space-between;margin-top:10px;align-items:center">
-        <div>
-          <span style="font-size:10px;color:var(--text2)">TIEMPO</span><br>
-          <span style="font-family:monospace;color:var(--accent);font-weight:700">${fmtHHMM(hrs)}</span>
-        </div>
-        <div style="text-align:right">
-          <span style="font-size:10px;color:var(--text2)">COSTO</span><br>
-          <span style="color:var(--accent2);font-weight:800;font-size:1.1rem">$${cost}</span>
-        </div>
+        <div><span style="font-size:10px;color:var(--text2)">TIEMPO</span><br><span style="font-family:monospace;color:var(--accent);font-weight:700">${fmtHHMM(hrs)}</span></div>
+        <div style="text-align:right"><span style="font-size:10px;color:var(--text2)">COSTO</span><br><span style="color:var(--accent2);font-weight:800;font-size:1.1rem">$${cost}</span></div>
         <button class="btn btn-danger btn-sm" onclick="abrirCierre('${r.id}')">⏹ Cerrar</button>
       </div>
     </div>`;
   });
-  html += '</div>';
-  con.innerHTML = html;
+  html+='</div>';
+  con.innerHTML=html;
 }
 
 // ══════════════════════════════════════════════
 //  STATS
 // ══════════════════════════════════════════════
 function updateStats(){
-  const hoy = new Date().toDateString();
-  const activos  = DB.equipos.filter(e=>!e.disponible && e.activo).length;
-  const libres   = DB.equipos.filter(e=>e.disponible && e.activo).length;
-  const hoyReg   = DB.registros.filter(r=>{
-    if(!r.fecha) return false;
-    return new Date(r.fecha).toDateString()===hoy;
-  });
-  const ingresos = hoyReg.reduce((s,r)=>{
-    let hrs = r.horas || 0;
-    if(r.estado==='activo') hrs = diffHoursFromNow(r.entrada);
-    return s + calcCost(r.equipo, hrs, r.servicio);
-  }, 0);
-
-  document.getElementById('statActivos').textContent  = activos;
-  document.getElementById('statLibres').textContent   = libres;
-  document.getElementById('statTotal').textContent    = hoyReg.length;
-  document.getElementById('statIngresos').textContent = '$'+ingresos.toFixed(2);
-  document.getElementById('badgeActivos').textContent = activos;
-  document.getElementById('badgeLibres').textContent  = libres;
+  const hoy=new Date().toDateString();
+  const activos=DB.equipos.filter(e=>!e.disponible&&e.activo).length;
+  const libres=DB.equipos.filter(e=>e.disponible&&e.activo).length;
+  const hoyReg=DB.registros.filter(r=>r.fecha&&new Date(r.fecha).toDateString()===hoy);
+  const ingresos=hoyReg.reduce((s,r)=>{
+    let hrs=r.horas||0;
+    if(r.estado==='activo') hrs=diffHoursFromNow(r.entrada);
+    return s+calcCost({...r,horas:hrs});
+  },0);
+  document.getElementById('statActivos').textContent=activos;
+  document.getElementById('statLibres').textContent=libres;
+  document.getElementById('statTotal').textContent=hoyReg.length;
+  document.getElementById('statIngresos').textContent='$'+ingresos.toFixed(2);
+  document.getElementById('badgeActivos').textContent=activos;
+  document.getElementById('badgeLibres').textContent=libres;
 }
 
 // ══════════════════════════════════════════════
-//  EQUIPMENT SELECTOR
+//  EQUIP SELECTOR
 // ══════════════════════════════════════════════
 function renderEquipSelector(){
-  const sel = document.getElementById('fEquipo');
-  sel.innerHTML = '';
+  const sel=document.getElementById('fEquipo');
+  sel.innerHTML='';
   DB.equipos.forEach(eq=>{
-    const opt = document.createElement('option');
-    opt.value = eq.id;
-    opt.textContent = (eq.disponible && eq.activo ? '🟢 ' : !eq.activo ? '🔧 ' : '🔴 ') + eq.id + ' — ' + eq.tipo;
-    if(!eq.disponible || !eq.activo) opt.disabled = true;
+    const opt=document.createElement('option');
+    opt.value=eq.id;
+    opt.textContent=(eq.disponible&&eq.activo?'🟢 ':!eq.activo?'🔧 ':'🔴 ')+eq.id+' — '+eq.tipo;
+    if(!eq.disponible||!eq.activo) opt.disabled=true;
     sel.appendChild(opt);
   });
 }
@@ -1281,79 +1210,85 @@ function guardarRegistro(){
   const tel      = document.getElementById('fTelefono').value.trim();
   const equipoId = document.getElementById('fEquipo').value;
   const servicio = document.getElementById('fServicio').value;
-  const tarifa   = parseFloat(document.getElementById('fTarifa').value) || 2;
+  const tarifa   = parseFloat(document.getElementById('fTarifa').value)||2;
   const entrada  = document.getElementById('fEntrada').value;
   const salida   = document.getElementById('fSalida').value;
   const obs      = document.getElementById('fObs').value.trim();
   const editId   = document.getElementById('editId').value;
+  const esImpresion = servicio==='impresion';
 
   if(!cliente){ toast('Ingresa el nombre del cliente','error'); return; }
   if(!equipoId){ toast('Selecciona un equipo','error'); return; }
-  if(!entrada){ toast('Ingresa la hora de entrada','error'); return; }
 
-  const eq = DB.equipos.find(e=>e.id===equipoId);
+  let printData = null;
+  if(esImpresion){
+    const paginas  = parseInt(document.getElementById('pPaginas').value)||1;
+    const copias   = parseInt(document.getElementById('pCopias').value)||1;
+    const precioPag= parseFloat(document.getElementById('pPrecioPag').value)||0.10;
+    const tipo     = document.getElementById('pTipo').value;
+    const totalHojas = paginas*copias;
+    const subtotal = +(totalHojas*precioPag).toFixed(2);
+    printData = { tipo, paginas, copias, precioPag, totalHojas, subtotal };
+  } else {
+    if(!entrada){ toast('Ingresa la hora de entrada','error'); return; }
+  }
+
+  const eq=DB.equipos.find(e=>e.id===equipoId);
 
   if(editId){
-    // UPDATE
-    const idx = DB.registros.findIndex(r=>r.id===editId);
+    const idx=DB.registros.findIndex(r=>r.id===editId);
     if(idx>=0){
-      const r = DB.registros[idx];
-      r.cliente  = cliente;
-      r.cedula   = cedula;
-      r.telefono = tel;
-      r.equipo   = equipoId;
-      r.servicio = servicio;
-      r.tarifa   = tarifa;
-      r.entrada  = entrada;
-      r.salida   = salida || r.salida;
-      r.obs      = obs;
-      if(salida){
-        r.horas  = +diffHours(entrada,salida).toFixed(2);
-        r.total  = +(r.horas * tarifa).toFixed(2);
-        r.estado = 'cerrado';
-      }
+      const r=DB.registros[idx];
+      r.cliente=cliente; r.cedula=cedula; r.telefono=tel;
+      r.equipo=equipoId; r.servicio=servicio; r.tarifa=tarifa;
+      r.entrada=entrada; r.salida=salida||r.salida; r.obs=obs;
+      if(esImpresion){ r.printData=printData; r.total=printData.subtotal; r.horas=0; r.estado='cerrado'; }
+      else if(salida){ r.horas=+diffHours(entrada,salida).toFixed(2); r.total=+(r.horas*tarifa).toFixed(2); r.estado='cerrado'; }
       toast('Registro actualizado ✅','success');
     }
   } else {
-    // INSERT
-    if(!eq || !eq.disponible || !eq.activo){
-      toast('Equipo no disponible','error'); return;
+    if(!eq||!eq.disponible||!eq.activo){ toast('Equipo no disponible','error'); return; }
+    const id=uid();
+    let horas=0, total=0, estado='cerrado';
+
+    if(esImpresion){
+      total=printData.subtotal;
+      estado='cerrado';
+    } else {
+      estado=salida?'cerrado':'activo';
+      horas=salida?+diffHours(entrada,salida).toFixed(2):0;
+      total=salida?+(horas*tarifa).toFixed(2):0;
     }
-    const id = uid();
-    const estado = salida ? 'cerrado' : 'activo';
-    const horas  = salida ? +diffHours(entrada,salida).toFixed(2) : 0;
-    const total  = salida ? +(horas * tarifa).toFixed(2) : 0;
-    const reg = {
-      id, cliente, cedula, telefono: tel,
-      equipo: equipoId, servicio, tarifa,
-      entrada, salida: salida||'', obs,
+
+    const reg={
+      id, cliente, cedula, telefono:tel,
+      equipo:equipoId, servicio, tarifa,
+      entrada:entrada||nowTimeStr(), salida:salida||'', obs,
       horas, total, estado,
-      fecha: new Date().toISOString(),
+      fecha:new Date().toISOString(),
+      printData,
     };
     DB.registros.push(reg);
-
-    // Mark equipo
-    eq.disponible = false;
-    eq.cliente    = cliente;
-    eq.sesionId   = id;
+    eq.disponible=false; eq.cliente=cliente; eq.sesionId=id;
 
     if(estado==='activo'){
-      DB.sesionActiva = id;
-      document.getElementById('precioCard').style.display = 'block';
-      document.getElementById('btnCerrarActivo').style.display = 'flex';
+      DB.sesionActiva=id;
+      document.getElementById('precioCard').style.display='block';
+      document.getElementById('btnCerrarActivo').style.display='flex';
+    } else {
+      // Liberar equipo inmediatamente si es impresión o servicio cerrado
+      eq.disponible=true; eq.cliente=null; eq.sesionId=null;
     }
-
-    toast('Servicio iniciado 🟢','success');
+    toast(esImpresion?'Impresión registrada 🖨️ ✅':'Servicio iniciado 🟢','success');
   }
 
   saveLS();
-  renderEquipGrid();
-  renderEquipSelector();
-  renderTabla();
-  renderSelectFactura();
-  updateStats();
-  renderActiveSessions();
+  renderEquipGrid(); renderEquipSelector(); renderTabla(); renderSelectFactura(); updateStats(); renderActiveSessions();
   resetForm();
+
+  if(esImpresion){
+    setTimeout(()=>{ switchTab('factura'); document.getElementById('selectFactura').value=DB.registros[DB.registros.length-1].id; cargarFactura(); },500);
+  }
 }
 
 // ══════════════════════════════════════════════
@@ -1361,41 +1296,34 @@ function guardarRegistro(){
 // ══════════════════════════════════════════════
 function updateLiveCalc(){
   if(!DB.sesionActiva) return;
-  const reg = DB.registros.find(r=>r.id===DB.sesionActiva);
-  if(!reg || reg.estado!=='activo') return;
-
-  const now = new Date();
-  const eMin = timeToMin(reg.entrada);
-  const nMin = now.getHours()*60+now.getMinutes();
-  const totalSec = Math.max(0,(nMin-eMin)*60 + now.getSeconds()%60);
-  const hrs  = totalSec/3600;
-  const cost = +(hrs * (reg.tarifa||2)).toFixed(2);
-
-  const h = Math.floor(totalSec/3600);
-  const m = Math.floor((totalSec%3600)/60);
-  const s = totalSec%60;
-
-  document.getElementById('liveTime').textContent  = fmt2(h)+':'+fmt2(m)+':'+fmt2(s);
-  document.getElementById('liveHours').textContent = hrs.toFixed(2);
-  document.getElementById('liveCost').textContent  = '$'+cost;
+  const reg=DB.registros.find(r=>r.id===DB.sesionActiva);
+  if(!reg||reg.estado!=='activo') return;
+  const now=new Date();
+  const eMin=timeToMin(reg.entrada);
+  const nMin=now.getHours()*60+now.getMinutes();
+  const totalSec=Math.max(0,(nMin-eMin)*60+now.getSeconds()%60);
+  const hrs=totalSec/3600;
+  const cost=+(hrs*(reg.tarifa||2)).toFixed(2);
+  const h=Math.floor(totalSec/3600);
+  const m=Math.floor((totalSec%3600)/60);
+  const s=totalSec%60;
+  document.getElementById('liveTime').textContent=fmt2(h)+':'+fmt2(m)+':'+fmt2(s);
+  document.getElementById('liveHours').textContent=hrs.toFixed(2);
+  document.getElementById('liveCost').textContent='$'+cost;
 }
 
-function cerrarSesionActiva(){
-  if(!DB.sesionActiva) return;
-  abrirCierre(DB.sesionActiva);
-}
+function cerrarSesionActiva(){ if(!DB.sesionActiva) return; abrirCierre(DB.sesionActiva); }
 
 // ══════════════════════════════════════════════
 //  CIERRE MODAL
 // ══════════════════════════════════════════════
 function abrirCierre(id){
-  const reg = DB.registros.find(r=>r.id===id);
+  const reg=DB.registros.find(r=>r.id===id);
   if(!reg) return;
-  const hrs  = diffHoursFromNow(reg.entrada);
-  const cost = calcCost(reg.equipo, hrs, reg.servicio);
-  const salida = nowTimeStr();
-
-  document.getElementById('modalCierreBody').innerHTML = `
+  const hrs=diffHoursFromNow(reg.entrada);
+  const cost=calcCost({...reg,horas:hrs});
+  const salida=nowTimeStr();
+  document.getElementById('modalCierreBody').innerHTML=`
     <input type="hidden" id="cierreId" value="${id}">
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px">
       <div><span style="font-size:11px;color:var(--text2)">CLIENTE</span><br><strong>${reg.cliente}</strong></div>
@@ -1410,41 +1338,26 @@ function abrirCierre(id){
       <div style="font-size:1.6rem;font-weight:800;color:var(--accent);font-family:monospace">${fmtHHMM(hrs)}</div>
       <div style="font-size:11px;color:var(--text2);margin-top:4px">TOTAL ESTIMADO</div>
       <div style="font-size:2rem;font-weight:800;color:var(--accent2)">$${cost}</div>
-    </div>
-  `;
+    </div>`;
   document.getElementById('modalCierre').classList.add('open');
 }
 
 function confirmarCierre(){
-  const id     = document.getElementById('cierreId').value;
-  const salida = document.getElementById('cierreHora').value;
-  const idx    = DB.registros.findIndex(r=>r.id===id);
+  const id=document.getElementById('cierreId').value;
+  const salida=document.getElementById('cierreHora').value;
+  const idx=DB.registros.findIndex(r=>r.id===id);
   if(idx<0) return;
-  const reg = DB.registros[idx];
-  reg.salida = salida;
-  reg.horas  = +diffHours(reg.entrada, salida).toFixed(2);
-  reg.total  = +(reg.horas * (reg.tarifa||2)).toFixed(2);
-  reg.estado = 'cerrado';
-
-  // Free equipo
-  const eq = DB.equipos.find(e=>e.id===reg.equipo);
+  const reg=DB.registros[idx];
+  reg.salida=salida;
+  reg.horas=+diffHours(reg.entrada,salida).toFixed(2);
+  reg.total=+(reg.horas*(reg.tarifa||2)).toFixed(2);
+  reg.estado='cerrado';
+  const eq=DB.equipos.find(e=>e.id===reg.equipo);
   if(eq){ eq.disponible=true; eq.cliente=null; eq.sesionId=null; }
-
-  if(DB.sesionActiva===id){
-    DB.sesionActiva=null;
-    document.getElementById('precioCard').style.display='none';
-  }
-
-  saveLS();
-  closeModal();
-  renderEquipGrid();
-  renderEquipSelector();
-  renderTabla();
-  renderSelectFactura();
-  updateStats();
-  renderActiveSessions();
+  if(DB.sesionActiva===id){ DB.sesionActiva=null; document.getElementById('precioCard').style.display='none'; }
+  saveLS(); closeModal();
+  renderEquipGrid(); renderEquipSelector(); renderTabla(); renderSelectFactura(); updateStats(); renderActiveSessions();
   toast('Servicio cerrado ✅','success');
-  // Auto go to invoice
   setTimeout(()=>{ switchTab('factura'); document.getElementById('selectFactura').value=id; cargarFactura(); },500);
 }
 
@@ -1452,24 +1365,25 @@ function confirmarCierre(){
 //  TABLA HISTORIAL
 // ══════════════════════════════════════════════
 function renderTabla(filtro=''){
-  const tbody = document.getElementById('tablaHistorial');
-  const empty = document.getElementById('emptyHistorial');
-  let data = [...DB.registros].reverse();
-  if(filtro) data = data.filter(r=> (r.cliente||'').toLowerCase().includes(filtro) || (r.equipo||'').toLowerCase().includes(filtro));
-
-  document.getElementById('countReg').textContent = DB.registros.length;
-
-  if(!data.length){
-    tbody.innerHTML='';
-    empty.style.display='block';
-    return;
-  }
+  const tbody=document.getElementById('tablaHistorial');
+  const empty=document.getElementById('emptyHistorial');
+  let data=[...DB.registros].reverse();
+  if(filtro) data=data.filter(r=>(r.cliente||'').toLowerCase().includes(filtro)||(r.equipo||'').toLowerCase().includes(filtro));
+  document.getElementById('countReg').textContent=DB.registros.length;
+  if(!data.length){ tbody.innerHTML=''; empty.style.display='block'; return; }
   empty.style.display='none';
-  tbody.innerHTML = data.map((r,i)=>{
-    const hrs = r.estado==='activo' ? diffHoursFromNow(r.entrada) : (r.horas||0);
-    const total = r.estado==='activo' ? calcCost(r.equipo,hrs,r.servicio) : (r.total||0);
-    const pill = r.estado==='activo' ? 'pill-activo' : r.estado==='pendiente' ? 'pill-pendiente' : 'pill-cerrado';
-    const stxt = r.estado==='activo' ? '🟢 Activo' : r.estado==='pendiente' ? '🟡 Pendiente' : '✅ Cerrado';
+  tbody.innerHTML=data.map(r=>{
+    const esImp=r.servicio==='impresion'&&r.printData;
+    const hrs=esImp?0:(r.estado==='activo'?diffHoursFromNow(r.entrada):(r.horas||0));
+    const total=esImp?(r.printData.subtotal||0):(r.estado==='activo'?calcCost({...r,horas:hrs}):(r.total||0));
+    const pill=r.estado==='activo'?'pill-activo':r.estado==='pendiente'?'pill-pendiente':'pill-cerrado';
+    const stxt=r.estado==='activo'?'🟢 Activo':r.estado==='pendiente'?'🟡 Pendiente':'✅ Cerrado';
+    let detalle='';
+    if(esImp){
+      detalle=`<br><span style="font-size:10px;color:var(--accent)">🖨️ ${r.printData.paginas}pág × ${r.printData.copias}cop = ${r.printData.totalHojas} hojas</span>`;
+    } else {
+      detalle=fmtHHMM(hrs);
+    }
     return `<tr>
       <td style="color:var(--text2);font-size:11px">${r.id}</td>
       <td><strong>${r.cliente}</strong>${r.cedula?`<br><span style='font-size:10px;color:var(--text2)'>${r.cedula}</span>`:''}</td>
@@ -1477,7 +1391,7 @@ function renderTabla(filtro=''){
       <td style="font-size:12px">${servicioLabel(r.servicio)}</td>
       <td style="font-family:monospace">${r.entrada}</td>
       <td style="font-family:monospace">${r.salida||'—'}</td>
-      <td style="font-family:monospace">${fmtHHMM(hrs)}</td>
+      <td style="font-family:monospace;font-size:12px">${detalle}</td>
       <td style="color:var(--accent2);font-weight:700">$${(+total).toFixed(2)}</td>
       <td><span class="status-pill ${pill}">${stxt}</span></td>
       <td>
@@ -1492,11 +1406,7 @@ function renderTabla(filtro=''){
   }).join('');
 }
 
-function filtrarTabla(){
-  const q = document.getElementById('searchInput').value.toLowerCase();
-  renderTabla(q);
-}
-
+function filtrarTabla(){ const q=document.getElementById('searchInput').value.toLowerCase(); renderTabla(q); }
 function irFactura(id){ switchTab('factura'); document.getElementById('selectFactura').value=id; cargarFactura(); }
 
 // ══════════════════════════════════════════════
@@ -1504,54 +1414,52 @@ function irFactura(id){ switchTab('factura'); document.getElementById('selectFac
 // ══════════════════════════════════════════════
 function eliminarRegistro(id){
   if(!confirm('¿Eliminar este registro?')) return;
-  const idx = DB.registros.findIndex(r=>r.id===id);
+  const idx=DB.registros.findIndex(r=>r.id===id);
   if(idx>=0){
-    const r = DB.registros[idx];
-    const eq = DB.equipos.find(e=>e.id===r.equipo);
-    if(eq && eq.sesionId===id){ eq.disponible=true; eq.cliente=null; eq.sesionId=null; }
+    const r=DB.registros[idx];
+    const eq=DB.equipos.find(e=>e.id===r.equipo);
+    if(eq&&eq.sesionId===id){ eq.disponible=true; eq.cliente=null; eq.sesionId=null; }
     DB.registros.splice(idx,1);
     if(DB.sesionActiva===id) DB.sesionActiva=null;
   }
-  saveLS();
-  renderTabla();
-  renderEquipGrid();
-  renderEquipSelector();
-  updateStats();
+  saveLS(); renderTabla(); renderEquipGrid(); renderEquipSelector(); updateStats();
   toast('Registro eliminado','warn');
 }
 
 function eliminarTodos(){
   if(!confirm('⚠️ ¿Eliminar TODOS los registros?')) return;
-  DB.registros=[];
-  DB.sesionActiva=null;
+  DB.registros=[]; DB.sesionActiva=null;
   DB.equipos.forEach(e=>{ e.disponible=true; e.cliente=null; e.sesionId=null; });
-  saveLS();
-  renderTabla();
-  renderEquipGrid();
-  renderEquipSelector();
-  updateStats();
+  saveLS(); renderTabla(); renderEquipGrid(); renderEquipSelector(); updateStats();
   toast('Todos los registros eliminados','warn');
 }
 
 function editarRegistro(id){
-  const r = DB.registros.find(x=>x.id===id);
+  const r=DB.registros.find(x=>x.id===id);
   if(!r) return;
-  // Fill form
-  document.getElementById('editId').value    = r.id;
-  document.getElementById('fCliente').value  = r.cliente;
-  document.getElementById('fCedula').value   = r.cedula||'';
-  document.getElementById('fTelefono').value = r.telefono||'';
-  document.getElementById('fEquipo').value   = r.equipo;
-  document.getElementById('fServicio').value = r.servicio;
-  document.getElementById('fTarifa').value   = r.tarifa||2;
-  document.getElementById('fEntrada').value  = r.entrada;
-  document.getElementById('fSalida').value   = r.salida||'';
-  document.getElementById('fObs').value      = r.obs||'';
-  document.getElementById('fEstado').value   = r.estado;
+  document.getElementById('editId').value=r.id;
+  document.getElementById('fCliente').value=r.cliente;
+  document.getElementById('fCedula').value=r.cedula||'';
+  document.getElementById('fTelefono').value=r.telefono||'';
+  document.getElementById('fEquipo').value=r.equipo;
+  document.getElementById('fServicio').value=r.servicio;
+  document.getElementById('fTarifa').value=r.tarifa||2;
+  document.getElementById('fEntrada').value=r.entrada;
+  document.getElementById('fSalida').value=r.salida||'';
+  document.getElementById('fObs').value=r.obs||'';
+  document.getElementById('fEstado').value=r.estado;
   document.getElementById('rowManualHours').style.display='grid';
-  document.getElementById('fHorasManual').value = r.horas;
-  document.getElementById('formTitle').textContent = 'Editar Registro — '+r.id;
-  document.getElementById('btnGuardarText').textContent = 'Actualizar Registro';
+  document.getElementById('fHorasManual').value=r.horas;
+  document.getElementById('formTitle').textContent='Editar Registro — '+r.id;
+  document.getElementById('btnGuardarText').textContent='Actualizar Registro';
+  onServicioChange();
+  if(r.printData){
+    document.getElementById('pTipo').value=r.printData.tipo;
+    document.getElementById('pPaginas').value=r.printData.paginas;
+    document.getElementById('pCopias').value=r.printData.copias;
+    document.getElementById('pPrecioPag').value=r.printData.precioPag;
+    recalcPrint();
+  }
   switchTab('registro');
   toast('Editando registro '+r.id,'info');
 }
@@ -1564,50 +1472,96 @@ function resetForm(){
   document.getElementById('fSalida').value='';
   document.getElementById('fObs').value='';
   document.getElementById('fEntrada').value=nowTimeStr();
+  document.getElementById('fServicio').value='alquiler';
   document.getElementById('formTitle').textContent='Nuevo Servicio';
   document.getElementById('btnGuardarText').textContent='Iniciar Servicio';
   document.getElementById('rowManualHours').style.display='none';
+  document.getElementById('panelImpresion').style.display='none';
+  document.getElementById('grupTarifa').style.display='flex';
+  document.getElementById('pPaginas').value=1;
+  document.getElementById('pCopias').value=1;
   renderEquipSelector();
 }
 
-function usarHoraActual(){
-  document.getElementById('fEntrada').value = nowTimeStr();
-  toast('Hora de entrada actualizada','info');
-}
+function usarHoraActual(){ document.getElementById('fEntrada').value=nowTimeStr(); toast('Hora de entrada actualizada','info'); }
 
 // ══════════════════════════════════════════════
 //  FACTURA
 // ══════════════════════════════════════════════
 function renderSelectFactura(){
-  const sel = document.getElementById('selectFactura');
-  const prev = sel.value;
-  sel.innerHTML = '<option value="">-- Seleccione un servicio --</option>';
+  const sel=document.getElementById('selectFactura');
+  const prev=sel.value;
+  sel.innerHTML='<option value="">-- Seleccione un servicio --</option>';
   [...DB.registros].reverse().forEach(r=>{
-    const opt = document.createElement('option');
-    opt.value = r.id;
-    opt.textContent = r.id + ' | ' + r.cliente + ' | ' + r.equipo + ' | ' + (r.estado==='activo'?'🟢 ACTIVO':'✅');
+    const opt=document.createElement('option');
+    opt.value=r.id;
+    opt.textContent=r.id+' | '+r.cliente+' | '+r.equipo+' | '+(r.estado==='activo'?'🟢 ACTIVO':'✅');
     sel.appendChild(opt);
   });
   if(prev) sel.value=prev;
 }
 
 function cargarFactura(){
-  const id = document.getElementById('selectFactura').value;
+  const id=document.getElementById('selectFactura').value;
   if(!id){
     document.getElementById('facturaContenido').innerHTML='<div class="empty-state"><div class="icon">🧾</div><p>Selecciona un registro para generar su factura</p></div>';
     document.getElementById('facturaActions').style.display='none';
     return;
   }
-  const r = DB.registros.find(x=>x.id===id);
+  const r=DB.registros.find(x=>x.id===id);
   if(!r) return;
 
-  const hrs   = r.estado==='activo' ? diffHoursFromNow(r.entrada) : (r.horas||0);
-  const sub   = +(hrs * (r.tarifa||2)).toFixed(2);
-  const iva   = +((sub * DB.config.iva / 100)).toFixed(2);
-  const total = +(sub + iva).toFixed(2);
+  const esImp = r.servicio==='impresion'&&r.printData;
+  const hrs   = esImp?0:(r.estado==='activo'?diffHoursFromNow(r.entrada):(r.horas||0));
+  const sub   = esImp?r.printData.subtotal:+(hrs*(r.tarifa||2)).toFixed(2);
+  const iva   = +((sub*DB.config.iva/100)).toFixed(2);
+  const total = +(sub+iva).toFixed(2);
   const fecha = new Date(r.fecha||Date.now());
 
-  document.getElementById('facturaContenido').innerHTML = `
+  // Fila de detalle
+  let detalleRow = '';
+  if(esImp){
+    const pd = r.printData;
+    detalleRow = `<tr>
+      <td>${printTipoLabel(pd.tipo)}</td>
+      <td>${r.equipo}</td>
+      <td style="font-family:monospace">${r.entrada}</td>
+      <td style="font-family:monospace">—</td>
+      <td style="font-family:monospace">${pd.paginas} pág × ${pd.copias} cop<br><span style="font-size:11px;color:var(--text2)">${pd.totalHojas} hojas totales</span></td>
+      <td>$${pd.precioPag.toFixed(2)}/hoja</td>
+      <td style="color:var(--accent);font-weight:700">$${sub.toFixed(2)}</td>
+    </tr>`;
+  } else {
+    detalleRow = `<tr>
+      <td>${servicioLabel(r.servicio)}</td>
+      <td>${r.equipo}</td>
+      <td style="font-family:monospace">${r.entrada}</td>
+      <td style="font-family:monospace">${r.salida||'En curso'}</td>
+      <td style="font-family:monospace">${fmtHHMM(hrs)}</td>
+      <td>$${(r.tarifa||2).toFixed(2)}/h</td>
+      <td style="color:var(--accent);font-weight:700">$${sub.toFixed(2)}</td>
+    </tr>`;
+  }
+
+  // Panel de impresión extra en factura
+  let printBlock = '';
+  if(esImp){
+    const pd=r.printData;
+    printBlock=`
+    <div class="inv-section">
+      <h4>Resumen de Impresión</h4>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:12px;background:var(--navy4);border-radius:10px;padding:14px">
+        <div class="inv-item"><span class="il">TIPO</span><span class="iv" style="font-size:12px">${printTipoLabel(pd.tipo)}</span></div>
+        <div class="inv-item"><span class="il">PÁGINAS</span><span class="iv">${pd.paginas}</span></div>
+        <div class="inv-item"><span class="il">COPIAS</span><span class="iv">${pd.copias}</span></div>
+        <div class="inv-item"><span class="il">TOTAL HOJAS</span><span class="iv">${pd.totalHojas}</span></div>
+        <div class="inv-item"><span class="il">PRECIO/HOJA</span><span class="iv">$${pd.precioPag.toFixed(2)}</span></div>
+        <div class="inv-item"><span class="il">SUBTOTAL</span><span class="iv" style="color:var(--accent2)">$${pd.subtotal.toFixed(2)}</span></div>
+      </div>
+    </div>`;
+  }
+
+  document.getElementById('facturaContenido').innerHTML=`
   <div class="invoice-card" id="invoicePrint">
     <div class="invoice-header">
       <div class="invoice-brand">
@@ -1634,23 +1588,14 @@ function cargarFactura(){
           <div class="inv-item"><span class="il">OBSERVACIONES</span><span class="iv">${r.obs||'—'}</span></div>
         </div>
       </div>
+      ${printBlock}
       <div class="inv-section">
         <h4>Detalle del Servicio</h4>
         <table class="inv-table">
           <thead>
-            <tr><th>Descripción</th><th>Equipo</th><th>Entrada</th><th>Salida</th><th>Tiempo</th><th>Tarifa</th><th>Subtotal</th></tr>
+            <tr><th>Descripción</th><th>Equipo</th><th>Entrada</th><th>Salida</th><th>Tiempo / Cant.</th><th>Tarifa</th><th>Subtotal</th></tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>${servicioLabel(r.servicio)}</td>
-              <td>${r.equipo}</td>
-              <td style="font-family:monospace">${r.entrada}</td>
-              <td style="font-family:monospace">${r.salida||'En curso'}</td>
-              <td style="font-family:monospace">${fmtHHMM(hrs)}</td>
-              <td>$${(r.tarifa||2).toFixed(2)}/h</td>
-              <td style="color:var(--accent);font-weight:700">$${sub.toFixed(2)}</td>
-            </tr>
-          </tbody>
+          <tbody>${detalleRow}</tbody>
         </table>
         <div style="text-align:right;margin-top:12px;font-size:13px">
           <div style="margin-bottom:6px;color:var(--text2)">Subtotal: <strong style="color:var(--text)">$${sub.toFixed(2)}</strong></div>
@@ -1674,124 +1619,109 @@ function cargarFactura(){
 //  PDF
 // ══════════════════════════════════════════════
 function descargarPDF(){
-  const id = document.getElementById('selectFactura').value;
+  const id=document.getElementById('selectFactura').value;
   if(!id){ toast('Selecciona un registro primero','error'); return; }
-  const r = DB.registros.find(x=>x.id===id);
+  const r=DB.registros.find(x=>x.id===id);
   if(!r) return;
 
-  const { jsPDF } = window.jspdf;
-  const doc = new jsPDF({ orientation:'portrait', unit:'mm', format:'a4' });
-
-  // Colors
+  const { jsPDF }=window.jspdf;
+  const doc=new jsPDF({orientation:'portrait',unit:'mm',format:'a4'});
+  const white=[255,255,255];
   const navyR=10,navyG=25,navyB=47;
   const cyanR=27,cyanG=127,cyanB=168;
-  const white=[255,255,255];
 
-  const hrs   = r.estado==='activo' ? diffHoursFromNow(r.entrada) : (r.horas||0);
-  const sub   = +(hrs * (r.tarifa||2)).toFixed(2);
-  const iva   = +((sub * DB.config.iva / 100)).toFixed(2);
-  const total = +(sub + iva).toFixed(2);
+  const esImp=r.servicio==='impresion'&&r.printData;
+  const hrs=esImp?0:(r.estado==='activo'?diffHoursFromNow(r.entrada):(r.horas||0));
+  const sub=esImp?r.printData.subtotal:+(hrs*(r.tarifa||2)).toFixed(2);
+  const iva=+((sub*DB.config.iva/100)).toFixed(2);
+  const total=+(sub+iva).toFixed(2);
 
-  // Header background
-  doc.setFillColor(navyR,navyG,navyB);
-  doc.rect(0,0,210,50,'F');
+  // Header
+  doc.setFillColor(navyR,navyG,navyB); doc.rect(0,0,210,50,'F');
+  doc.setFillColor(cyanR,cyanG,cyanB); doc.rect(0,48,210,2,'F');
+  doc.setTextColor(...white); doc.setFontSize(20); doc.setFont(undefined,'bold');
+  doc.text('SERVTECH NAVARRO',14,18);
+  doc.setFontSize(9); doc.setFont(undefined,'normal');
+  doc.text(DB.config.dir,14,25);
+  doc.text('Tel: '+DB.config.tel+'  |  '+DB.config.email,14,30);
+  doc.text('RUC: '+DB.config.ruc,14,35);
+  doc.setFontSize(14); doc.setFont(undefined,'bold');
+  doc.text('FACTURA',160,18,null,null,'right');
+  doc.setFontSize(11); doc.text('#'+r.id,196,25,null,null,'right');
+  doc.setFontSize(9); doc.setFont(undefined,'normal');
+  doc.text(fmtDate(new Date(r.fecha||Date.now())),196,31,null,null,'right');
 
-  // Accent line
-  doc.setFillColor(cyanR,cyanG,cyanB);
-  doc.rect(0,48,210,2,'F');
+  // Client block
+  doc.setFillColor(15,39,68); doc.rect(0,52,210,28,'F');
+  doc.setTextColor(100,200,220); doc.setFontSize(8); doc.setFont(undefined,'bold');
+  doc.text('DATOS DEL CLIENTE',14,60);
+  doc.setTextColor(...white); doc.setFont(undefined,'normal'); doc.setFontSize(9);
+  doc.text('Nombre: '+r.cliente,14,67);
+  doc.text('Cédula/RUC: '+(r.cedula||'—'),14,73);
+  doc.text('Teléfono: '+(r.telefono||'—'),110,67);
+  doc.text('Obs: '+(r.obs||'—'),110,73);
 
-  // Company name
-  doc.setTextColor(...white);
-  doc.setFontSize(20);
-  doc.setFont(undefined,'bold');
-  doc.text('SERVTECH NAVARRO', 14, 18);
-  doc.setFontSize(9);
-  doc.setFont(undefined,'normal');
-  doc.text(DB.config.dir, 14, 25);
-  doc.text('Tel: '+DB.config.tel+'  |  '+DB.config.email, 14, 30);
-  doc.text('RUC: '+DB.config.ruc, 14, 35);
+  // Print detail block (si es impresión)
+  let startY=84;
+  if(esImp){
+    const pd=r.printData;
+    doc.setFillColor(10,30,58); doc.rect(0,startY,210,20,'F');
+    doc.setTextColor(100,200,220); doc.setFontSize(8); doc.setFont(undefined,'bold');
+    doc.text('RESUMEN DE IMPRESIÓN',14,startY+7);
+    doc.setTextColor(...white); doc.setFont(undefined,'normal'); doc.setFontSize(9);
+    doc.text('Tipo: '+printTipoLabel(pd.tipo),14,startY+14);
+    doc.text('Páginas: '+pd.paginas+'   Copias: '+pd.copias+'   Total hojas: '+pd.totalHojas,70,startY+14);
+    doc.text('Precio/hoja: $'+pd.precioPag.toFixed(2),160,startY+14);
+    startY+=24;
+  }
 
-  // Invoice number
-  doc.setFontSize(14);
-  doc.setFont(undefined,'bold');
-  doc.text('FACTURA', 160, 18, null, null, 'right');
-  doc.setFontSize(11);
-  doc.text('#'+r.id, 196, 25, null, null, 'right');
-  doc.setFontSize(9);
-  doc.setFont(undefined,'normal');
-  doc.text(fmtDate(new Date(r.fecha||Date.now())), 196, 31, null, null, 'right');
+  // Service table
+  const tableBody = esImp
+    ? [[printTipoLabel(r.printData.tipo), r.equipo, r.entrada, '—',
+        r.printData.paginas+' pág × '+r.printData.copias+' cop\n('+r.printData.totalHojas+' hojas)',
+        '$'+r.printData.precioPag.toFixed(2)+'/hoja', '$'+sub.toFixed(2)]]
+    : [[servicioLabel(r.servicio), r.equipo, r.entrada,
+        r.salida||'En curso', fmtHHMM(hrs),
+        '$'+(r.tarifa||2).toFixed(2)+'/h', '$'+sub.toFixed(2)]];
 
-  // CLIENT INFO
-  doc.setFillColor(15,39,68);
-  doc.rect(0,52,210,28,'F');
-  doc.setTextColor(100,200,220);
-  doc.setFontSize(8);
-  doc.setFont(undefined,'bold');
-  doc.text('DATOS DEL CLIENTE', 14, 60);
-  doc.setTextColor(...white);
-  doc.setFont(undefined,'normal');
-  doc.setFontSize(9);
-  doc.text('Nombre: '+r.cliente, 14, 67);
-  doc.text('Cédula/RUC: '+(r.cedula||'—'), 14, 73);
-  doc.text('Teléfono: '+(r.telefono||'—'), 110, 67);
-  doc.text('Observaciones: '+(r.obs||'—'), 110, 73);
-
-  // TABLE
   doc.autoTable({
-    startY: 84,
-    head: [['Servicio','Equipo','Entrada','Salida','Tiempo','Tarifa/h','Subtotal']],
-    body: [[
-      servicioLabel(r.servicio), r.equipo, r.entrada,
-      r.salida||'En curso', fmtHHMM(hrs),
-      '$'+(r.tarifa||2).toFixed(2), '$'+sub.toFixed(2)
-    ]],
-    styles: { textColor:[200,220,255], fillColor:[10,25,47], fontSize:9, cellPadding:5 },
-    headStyles: { fillColor:[27,127,168], textColor:white, fontStyle:'bold' },
-    alternateRowStyles: { fillColor:[15,35,60] },
-    tableLineColor:[30,58,95], tableLineWidth:0.2,
+    startY,
+    head:[['Servicio','Equipo','Entrada','Salida','Tiempo/Cant','Tarifa','Subtotal']],
+    body: tableBody,
+    styles:{textColor:[200,220,255],fillColor:[10,25,47],fontSize:9,cellPadding:5},
+    headStyles:{fillColor:[27,127,168],textColor:white,fontStyle:'bold'},
+    alternateRowStyles:{fillColor:[15,35,60]},
+    tableLineColor:[30,58,95],tableLineWidth:0.2,
   });
 
-  const y = doc.lastAutoTable.finalY + 10;
+  const y=doc.lastAutoTable.finalY+10;
 
-  // Totals box
-  doc.setFillColor(15,39,68);
-  doc.rect(120, y, 75, 32, 'F');
-  doc.setDrawColor(cyanR,cyanG,cyanB);
-  doc.setLineWidth(0.5);
-  doc.rect(120, y, 75, 32, 'S');
-
-  doc.setTextColor(130,180,210);
-  doc.setFontSize(9);
-  doc.text('Subtotal:', 124, y+8);
-  doc.text('IVA '+DB.config.iva+'%:', 124, y+15);
+  // Totals
+  doc.setFillColor(15,39,68); doc.rect(120,y,75,32,'F');
+  doc.setDrawColor(cyanR,cyanG,cyanB); doc.setLineWidth(0.5); doc.rect(120,y,75,32,'S');
+  doc.setTextColor(130,180,210); doc.setFontSize(9);
+  doc.text('Subtotal:',124,y+8); doc.text('IVA '+DB.config.iva+'%:',124,y+15);
   doc.setTextColor(...white);
-  doc.text('$'+sub.toFixed(2), 193, y+8, null, null, 'right');
-  doc.text('$'+iva.toFixed(2), 193, y+15, null, null, 'right');
-
-  doc.setFillColor(cyanR,cyanG,cyanB);
-  doc.rect(120, y+20, 75, 12, 'F');
-  doc.setTextColor(...white);
-  doc.setFont(undefined,'bold');
-  doc.setFontSize(11);
-  doc.text('TOTAL:', 124, y+28);
-  doc.text('$'+total.toFixed(2), 193, y+28, null, null, 'right');
+  doc.text('$'+sub.toFixed(2),193,y+8,null,null,'right');
+  doc.text('$'+iva.toFixed(2),193,y+15,null,null,'right');
+  doc.setFillColor(cyanR,cyanG,cyanB); doc.rect(120,y+20,75,12,'F');
+  doc.setTextColor(...white); doc.setFont(undefined,'bold'); doc.setFontSize(11);
+  doc.text('TOTAL:',124,y+28);
+  doc.text('$'+total.toFixed(2),193,y+28,null,null,'right');
 
   // Footer
-  doc.setFillColor(navyR,navyG,navyB);
-  doc.rect(0,280,210,17,'F');
-  doc.setTextColor(100,160,200);
-  doc.setFontSize(8);
-  doc.setFont(undefined,'normal');
-  doc.text('¡Gracias por su preferencia! • '+DB.config.nombre+' • '+DB.config.email, 105, 290, null, null, 'center');
+  doc.setFillColor(navyR,navyG,navyB); doc.rect(0,280,210,17,'F');
+  doc.setTextColor(100,160,200); doc.setFontSize(8); doc.setFont(undefined,'normal');
+  doc.text('¡Gracias por su preferencia! • '+DB.config.nombre+' • '+DB.config.email,105,290,null,null,'center');
 
   doc.save('Factura_'+r.id+'_'+r.cliente.replace(/\s/g,'_')+'.pdf');
   toast('PDF descargado ✅','success');
 }
 
 function imprimirFactura(){
-  const content = document.getElementById('invoicePrint');
+  const content=document.getElementById('invoicePrint');
   if(!content){ toast('Nada que imprimir','error'); return; }
-  const w = window.open('','_blank');
+  const w=window.open('','_blank');
   w.document.write(`<html><head><title>Factura</title>
     <style>
       body{font-family:Segoe UI,sans-serif;background:#0a192f;color:#ccd6f6;margin:20px}
@@ -1811,64 +1741,63 @@ function imprimirFactura(){
 //  CONFIG
 // ══════════════════════════════════════════════
 function loadConfig(){
-  const c = DB.config;
-  document.getElementById('cfgNombre').value = c.nombre;
-  document.getElementById('cfgRuc').value    = c.ruc;
-  document.getElementById('cfgDir').value    = c.dir;
-  document.getElementById('cfgTel').value    = c.tel;
-  document.getElementById('cfgEmail').value  = c.email;
-  document.getElementById('cfgIva').value    = c.iva;
-  document.getElementById('cfgPc').value     = c.ratePc;
-  document.getElementById('cfgLaptop').value = c.rateLaptop;
-  document.getElementById('cfgImp').value    = c.rateImp;
+  const c=DB.config;
+  document.getElementById('cfgNombre').value=c.nombre;
+  document.getElementById('cfgRuc').value=c.ruc;
+  document.getElementById('cfgDir').value=c.dir;
+  document.getElementById('cfgTel').value=c.tel;
+  document.getElementById('cfgEmail').value=c.email;
+  document.getElementById('cfgIva').value=c.iva;
+  document.getElementById('cfgPc').value=c.ratePc;
+  document.getElementById('cfgLaptop').value=c.rateLaptop;
+  document.getElementById('cfgImpBN').value=c.rateImpBN;
+  document.getElementById('cfgImpColor').value=c.rateImpColor;
+  document.getElementById('cfgEscaneo').value=c.rateEscaneo;
+  document.getElementById('cfgFoto').value=c.rateFoto;
   updateRates();
 }
 
 function updateRates(){
-  DB.config.ratePc     = parseFloat(document.getElementById('cfgPc').value)||2;
-  DB.config.rateLaptop = parseFloat(document.getElementById('cfgLaptop').value)||2.5;
-  DB.config.rateImp    = parseFloat(document.getElementById('cfgImp').value)||0.1;
-  document.getElementById('ratePc').textContent     = DB.config.ratePc.toFixed(2);
-  document.getElementById('rateLaptop').textContent = DB.config.rateLaptop.toFixed(2);
-  document.getElementById('rateImp').textContent    = DB.config.rateImp.toFixed(2);
+  DB.config.ratePc      = parseFloat(document.getElementById('cfgPc').value)||2;
+  DB.config.rateLaptop  = parseFloat(document.getElementById('cfgLaptop').value)||2.5;
+  DB.config.rateImpBN   = parseFloat(document.getElementById('cfgImpBN').value)||0.10;
+  DB.config.rateImpColor= parseFloat(document.getElementById('cfgImpColor').value)||0.25;
+  DB.config.rateEscaneo = parseFloat(document.getElementById('cfgEscaneo').value)||0.15;
+  DB.config.rateFoto    = parseFloat(document.getElementById('cfgFoto').value)||0.05;
+  document.getElementById('ratePc').textContent      = DB.config.ratePc.toFixed(2);
+  document.getElementById('rateLaptop').textContent  = DB.config.rateLaptop.toFixed(2);
+  document.getElementById('rateImpBN').textContent   = DB.config.rateImpBN.toFixed(2);
+  document.getElementById('rateImpColor').textContent= DB.config.rateImpColor.toFixed(2);
+  document.getElementById('rateEscaneo').textContent = DB.config.rateEscaneo.toFixed(2);
+  document.getElementById('rateFoto').textContent    = DB.config.rateFoto.toFixed(2);
 }
 
 function updateConfig(){
-  DB.config.nombre = document.getElementById('cfgNombre').value;
-  DB.config.ruc    = document.getElementById('cfgRuc').value;
-  DB.config.dir    = document.getElementById('cfgDir').value;
-  DB.config.tel    = document.getElementById('cfgTel').value;
-  DB.config.email  = document.getElementById('cfgEmail').value;
-  DB.config.iva    = parseInt(document.getElementById('cfgIva').value)||15;
+  DB.config.nombre=document.getElementById('cfgNombre').value;
+  DB.config.ruc=document.getElementById('cfgRuc').value;
+  DB.config.dir=document.getElementById('cfgDir').value;
+  DB.config.tel=document.getElementById('cfgTel').value;
+  DB.config.email=document.getElementById('cfgEmail').value;
+  DB.config.iva=parseInt(document.getElementById('cfgIva').value)||15;
 }
 
-function guardarConfig(){
-  updateConfig();
-  updateRates();
-  saveLS();
-  toast('Configuración guardada ✅','success');
-}
+function guardarConfig(){ updateConfig(); updateRates(); saveLS(); toast('Configuración guardada ✅','success'); }
 
 function resetData(){
   if(!confirm('⚠️ ADVERTENCIA: Se eliminarán TODOS los datos. ¿Continuar?')) return;
   localStorage.removeItem('servtech_db');
-  DB.registros=[];
-  DB.nextId=1001;
-  DB.sesionActiva=null;
+  DB.registros=[]; DB.nextId=1001; DB.sesionActiva=null;
   DB.equipos.forEach(e=>{ e.disponible=true; e.cliente=null; e.sesionId=null; e.activo=true; });
-  renderTabla();
-  renderEquipGrid();
-  renderEquipSelector();
-  updateStats();
+  renderTabla(); renderEquipGrid(); renderEquipSelector(); updateStats();
   toast('Datos reiniciados','warn');
 }
 
 // ══════════════════════════════════════════════
-//  EQUIPMENT ADMIN
+//  EQUIP ADMIN
 // ══════════════════════════════════════════════
 function renderEquipAdmin(){
-  const con = document.getElementById('equipAdminGrid');
-  con.innerHTML = `<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px">
+  const con=document.getElementById('equipAdminGrid');
+  con.innerHTML=`<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px">
   ${DB.equipos.map(eq=>`
     <div style="background:var(--navy3);border:1px solid var(--border);border-radius:10px;padding:14px;display:flex;align-items:center;gap:12px">
       <span style="font-size:28px">${eq.icon}</span>
@@ -1877,27 +1806,21 @@ function renderEquipAdmin(){
         <div style="font-size:11px;color:var(--text2)">${eq.tipo}</div>
         <div style="margin-top:6px">
           <label style="font-size:11px;display:flex;align-items:center;gap:6px;cursor:pointer">
-            <input type="checkbox" ${eq.activo?'checked':''} onchange="toggleEquipActivo('${eq.id}',this.checked)"
-              style="width:14px;height:14px">
+            <input type="checkbox" ${eq.activo?'checked':''} onchange="toggleEquipActivo('${eq.id}',this.checked)" style="width:14px;height:14px">
             <span style="color:${eq.activo?'var(--success)':'var(--danger)'}">${eq.activo?'🟢 Habilitado':'🔴 Mantenimiento'}</span>
           </label>
         </div>
       </div>
-    </div>
-  `).join('')}
+    </div>`).join('')}
   </div>`;
 }
 
-function toggleEquipActivo(id, val){
-  const eq = DB.equipos.find(e=>e.id===id);
+function toggleEquipActivo(id,val){
+  const eq=DB.equipos.find(e=>e.id===id);
   if(eq){
-    eq.activo = val;
+    eq.activo=val;
     if(!val){ eq.disponible=true; eq.cliente=null; eq.sesionId=null; }
-    saveLS();
-    renderEquipGrid();
-    renderEquipSelector();
-    updateStats();
-    renderEquipAdmin();
+    saveLS(); renderEquipGrid(); renderEquipSelector(); updateStats(); renderEquipAdmin();
     toast(`Equipo ${id} ${val?'habilitado':'puesto en mantenimiento'}`,'info');
   }
 }
@@ -1905,14 +1828,8 @@ function toggleEquipActivo(id, val){
 // ══════════════════════════════════════════════
 //  MODALS
 // ══════════════════════════════════════════════
-function closeModal(){
-  document.querySelectorAll('.modal-overlay').forEach(m=>m.classList.remove('open'));
-}
-
-// Click outside to close
-document.addEventListener('click', e=>{
-  if(e.target.classList.contains('modal-overlay')) closeModal();
-});
+function closeModal(){ document.querySelectorAll('.modal-overlay').forEach(m=>m.classList.remove('open')); }
+document.addEventListener('click',e=>{ if(e.target.classList.contains('modal-overlay')) closeModal(); });
 </script>
 </body>
 </html>
