@@ -2,20 +2,20 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Sistema XYZ</title>
+<title>Sistema XYZ PRO</title>
+
 <style>
 body {
     font-family: Arial;
     background: #f4f4f4;
     padding: 20px;
 }
-h1 { color: #333; }
 
 .container {
     background: white;
     padding: 20px;
     border-radius: 10px;
-    max-width: 800px;
+    max-width: 900px;
     margin: auto;
 }
 
@@ -25,14 +25,13 @@ input, select, button {
 }
 
 button {
-    background: #007BFF;
+    background: #28a745;
     color: white;
     border: none;
-    cursor: pointer;
 }
 
 button:hover {
-    background: #0056b3;
+    background: #218838;
 }
 
 table {
@@ -41,29 +40,35 @@ table {
     border-collapse: collapse;
 }
 
-table, th, td {
-    border: 1px solid #ccc;
-}
-
 th, td {
+    border: 1px solid #ccc;
     padding: 10px;
     text-align: center;
 }
+
+.factura {
+    background: #eee;
+    padding: 10px;
+    margin-top: 20px;
+}
 </style>
+
 </head>
 
 <body>
 
 <div class="container">
-<h1>Empresa XYZ - Alquiler de Equipos</h1>
+<h1>💻 Empresa XYZ - Sistema</h1>
 
-<h3>Alquilar Equipo</h3>
+<h3>Alquiler</h3>
 
-<input type="text" id="cliente" placeholder="Nombre del cliente">
+<input type="text" id="cliente" placeholder="Cliente">
 
 <select id="equipo">
-    <option value="PC">PC</option>
-    <option value="Laptop">Laptop</option>
+    <option value="PC1">PC 1</option>
+    <option value="PC2">PC 2</option>
+    <option value="Laptop1">Laptop 1</option>
+    <option value="Laptop2">Laptop 2</option>
     <option value="Impresora">Impresora</option>
 </select>
 
@@ -72,13 +77,14 @@ th, td {
 <button onclick="alquilar()">Alquilar</button>
 
 <h3>Servicios</h3>
+
 <select id="servicio">
     <option value="impresion">Impresión ($0.10)</option>
     <option value="copia">Copia ($0.05)</option>
 </select>
 
 <input type="number" id="cantidad" placeholder="Cantidad">
-<button onclick="agregarServicio()">Agregar Servicio</button>
+<button onclick="agregarServicio()">Agregar</button>
 
 <h3>Registros</h3>
 
@@ -96,22 +102,58 @@ th, td {
 <tbody id="tabla"></tbody>
 </table>
 
+<div class="factura" id="factura"></div>
+
 </div>
 
 <script>
+
 let equipos = {
-    "PC": true,
-    "Laptop": true,
+    "PC1": true,
+    "PC2": true,
+    "Laptop1": true,
+    "Laptop2": true,
     "Impresora": true
 };
 
 let registros = [];
 let serviciosTemp = [];
 
+// -------- LOCAL STORAGE --------
+function guardarDatos() {
+    localStorage.setItem("registros", JSON.stringify(registros));
+}
+
+function cargarDatos() {
+    let data = localStorage.getItem("registros");
+    if (data) {
+        registros = JSON.parse(data);
+        reconstruirEquipos();
+        mostrar();
+    }
+}
+
+// reconstruir estado de equipos
+function reconstruirEquipos() {
+    for (let key in equipos) {
+        equipos[key] = true;
+    }
+
+    registros.forEach(r => {
+        equipos[r.equipo] = false;
+    });
+}
+
+// -------- FUNCIONES --------
 function alquilar() {
     let cliente = document.getElementById("cliente").value;
     let equipo = document.getElementById("equipo").value;
-    let horas = document.getElementById("horas").value;
+    let horas = parseInt(document.getElementById("horas").value);
+
+    if (!cliente || !horas) {
+        alert("Complete los campos");
+        return;
+    }
 
     if (!equipos[equipo]) {
         alert("Equipo ocupado");
@@ -119,10 +161,8 @@ function alquilar() {
     }
 
     let costo = horas * 5;
-
-    let totalServicios = serviciosTemp.reduce((acc, s) => acc + s.total, 0);
-
-    let totalFinal = costo + totalServicios;
+    let totalServicios = serviciosTemp.reduce((a, s) => a + s.total, 0);
+    let total = costo + totalServicios;
 
     equipos[equipo] = false;
 
@@ -131,17 +171,19 @@ function alquilar() {
         equipo,
         horas,
         servicios: [...serviciosTemp],
-        total: totalFinal
+        total
     });
 
     serviciosTemp = [];
 
+    guardarDatos();
     mostrar();
+    generarFactura(cliente, equipo, horas, total);
 }
 
 function agregarServicio() {
     let tipo = document.getElementById("servicio").value;
-    let cantidad = document.getElementById("cantidad").value;
+    let cantidad = parseInt(document.getElementById("cantidad").value);
 
     let precio = tipo === "impresion" ? 0.10 : 0.05;
 
@@ -158,29 +200,46 @@ function mostrar() {
     let tabla = document.getElementById("tabla");
     tabla.innerHTML = "";
 
-    registros.forEach((r, index) => {
-        let serviciosTexto = r.servicios.map(s => s.tipo + "(" + s.cantidad + ")").join(", ");
+    registros.forEach((r, i) => {
+        let servicios = r.servicios.map(s => s.tipo + "(" + s.cantidad + ")").join(", ");
 
         tabla.innerHTML += `
         <tr>
             <td>${r.cliente}</td>
             <td>${r.equipo}</td>
             <td>${r.horas}</td>
-            <td>${serviciosTexto}</td>
+            <td>${servicios}</td>
             <td>$${r.total.toFixed(2)}</td>
-            <td><button onclick="eliminar(${index})">Eliminar</button></td>
+            <td>
+                <button onclick="eliminar(${i})">Eliminar</button>
+            </td>
         </tr>
         `;
     });
 }
 
-function eliminar(index) {
-    let equipo = registros[index].equipo;
-    equipos[equipo] = true;
+function eliminar(i) {
+    equipos[registros[i].equipo] = true;
+    registros.splice(i, 1);
 
-    registros.splice(index, 1);
+    guardarDatos();
     mostrar();
 }
+
+// -------- FACTURA --------
+function generarFactura(cliente, equipo, horas, total) {
+    document.getElementById("factura").innerHTML = `
+        <h3>🧾 Factura</h3>
+        Cliente: ${cliente} <br>
+        Equipo: ${equipo} <br>
+        Horas: ${horas} <br>
+        Total: $${total.toFixed(2)}
+    `;
+}
+
+// -------- INICIO --------
+window.onload = cargarDatos;
+
 </script>
 
 </body>
